@@ -1,0 +1,67 @@
+import java.util.Scanner;
+
+public class imperials {
+
+	public static void main(String[] args) {
+		Scanner scanner = new Scanner (System.in);
+		imperials.lol();
+		imperials.ageControl(scanner.nextInt());
+		imperials.count(scanner.nextInt());
+		System.out.println(imperials.kelvin(scanner.nextInt()));
+		System.out.println(imperials.min(scanner.nextInt(), scanner.nextInt()));
+		imperials.stair(scanner.nextInt());
+	}
+	public static void lol(){
+		System.out.println("hahahahahahahaha");
+	}
+	public static int min(int a, int b) {
+		if (a<b) {
+			return a;
+		}
+		else {
+			return b;
+		}
+	}
+	public static void count(int n) {
+		for(int c = n; c>0; c = c-1) {
+			System.out.println(c);
+		}
+	}
+	public static double kelvin(double celcius) {
+		double kelvin = celcius*1.8;
+		kelvin = kelvin + 32;
+		return kelvin;
+	}
+	public static void ageControl(int age) {
+		if (age<6) {
+			System.out.println("Småbarn får inte göra något.");
+		}
+		else if (age<13) {
+			System .out.println("Du får spela Fortnite.");
+		}
+		else if (age<16) {
+			System.out.println("du är tonåring");
+		}
+		else if (age<18) {
+			System.out.println("du får köra bil");
+		}
+		else if (age<66) {
+			System.out.println("du får gå på systemet");
+		}
+		else if (age<100) {
+			System.out.println("du är pensionär");
+		}
+		else if (age>99) {
+			System.out.println("rip");
+		}
+	}
+	public static void stair(int steps) {
+		for (int x = 0; x<=steps; x++) {
+			System.out.println();
+		for (int y = x; y>0; y=y-1) {
+			System.out.print("X");
+		}
+		}
+	}
+}
+
