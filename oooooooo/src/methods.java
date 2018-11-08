@@ -1,5 +1,4 @@
 
-
 public class methods{
 	public static double fahrenheitToCelsius(double fahrenheit) {
 		return (fahrenheit - 32)/1.8;
@@ -13,7 +12,7 @@ public class methods{
 		return deep*fluid.density; 
 	}
 	public static double pressureUnderWater(double deep) {
-		return deep*9800.36;
+		return deep*9998+100000;
 	}
 	public static double kineticEnergy(double mass, double velocity) {
 		return mass*velocity;
