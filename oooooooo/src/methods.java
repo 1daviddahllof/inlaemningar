@@ -2,26 +2,26 @@
 public class methods{
 	public static double fahrenheitToCelsius(double fahrenheit) {
 		return (fahrenheit - 32)/1.8;
-		
 	}
 	public static double kelvinToCelsius(double kelvin) {
 		return kelvin - 273.15;
-		
 	}
 	public static double fluidPressure(enums.FluidTable fluid, double deep) {
 		return deep*fluid.density; 
 	}
 	public static double pressureUnderWater(double deep) {
-		return deep*9998+100000;
+		return deep*enums.FluidTable.WATER.density+constants.ATM;
 	}
 	public static double kineticEnergy(double mass, double velocity) {
 		return mass*velocity;
 	}
 	public static double potentialEnergy(double mass, double height) {
-		return mass*height*9.98;
+		return mass*height*constants.g;
 	}
 	public static double fallSpeed(double height) {
-		return Math.pow((height*2/9.98), 0.5)*9.98;
+		return Math.pow((height*2/constants.g), 0.5)*constants.g;
+		/*meter=sekunder^2*acceleration/2  & hastighet = acceleration*sekunder
+		så hastighet=meter*2/acceleration^0.5*acceleration*/ 
 	}
 	public static double delta(double first, double last) {
 		return first-last;
@@ -60,6 +60,7 @@ public class methods{
 		return gas.heatCapacity*volume*deltaT;
 	}
 	public static double velocityToHeight(double velocity) {
-		return Math.pow(velocity, 2)/9.98/2;
+		return Math.pow(velocity, 2)/constants.g/2;/*meter=sekunder^2*acceleration/2*/ 
 	}
+	
 }

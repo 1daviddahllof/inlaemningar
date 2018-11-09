@@ -26,6 +26,7 @@ public class testa {
 		System.out.println("potentialEnergy(double mass + double height)");
 		System.out.println(methods.potentialEnergy(scn.nextDouble(), scn.nextDouble()));
 		
+		System.out.println(constants.g);
 		System.out.println("fallSpeed(double height)");
 		System.out.println(methods.fallSpeed(scn.nextDouble()));
 

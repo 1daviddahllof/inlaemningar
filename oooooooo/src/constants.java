@@ -1,7 +1,7 @@
 public class constants {
-
-	static double g = 9.82;
+	static double g = 9.82; /*här finns några konstanter*/
 	static double ATM = 101.3E3;
-	static double G = 6.67408*0.00000000001;
-	
+	static double G = 667408*1E-16;
+	static double C = 299792458;
+	static double R = 8.3144621;
 }

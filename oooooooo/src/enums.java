@@ -2,13 +2,15 @@
 public class enums {
 	public enum FluidTable {
 
+
 		H2O(0.998, 4.19, 0, 100, 2260), 
 		WATER(0.998, 4.19, 0, 100, 2260),
 		H2SO4(1.84, 1.38, 10, 336, 511),
+		C2H5OH(0.789, 2.44, -114.1, 78.37, 0), /*har inte hittat ångentalpi för etanol*/
+		OLIVOLJA(0.915, 1.7, -3, 190, 0),/*inte här eller*/
 		nothing(0, 0, 0, 0, 0)
 		;
 		
-
 		double density;
 		double heatCapacity;
 		double meltPoint;
@@ -24,7 +26,7 @@ public class enums {
 	
 		}
 		static FluidTable contains(String test) {
-
+			/*jag googlade till mig ett sätt att returna enumen med samma namn som imput. Nothing blir svar när input inte matchade något*/
 		    for (FluidTable c : FluidTable.values()) {
 		        if (c.name().equals(test)) {
 		            return c;
@@ -39,6 +41,8 @@ public class enums {
 		AIR(1.29, 1.01), 
 		O2(1.43, 0.92), 
 		OXYGEN(1.43, 0.92),
+		GASOL(2.01, 0),
+	//hittade inte värmekapacitet
 		nothing(0, 0)
 		;
 
@@ -86,5 +90,6 @@ public class enums {
 		    }
 		    return SolidTable.nothing;
 		}
+		
 	}
 }
