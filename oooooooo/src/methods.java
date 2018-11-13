@@ -7,7 +7,7 @@ public class methods{
 		return kelvin - 273.15;
 	}
 	public static double fluidPressure(enums.FluidTable fluid, double deep) {
-		return deep*fluid.density; 
+		return deep*fluid.density+constants.ATM; 
 	}
 	public static double pressureUnderWater(double deep) {
 		return deep*enums.FluidTable.WATER.density+constants.ATM;
@@ -62,5 +62,6 @@ public class methods{
 	public static double velocityToHeight(double velocity) {
 		return Math.pow(velocity, 2)/constants.g/2;/*meter=sekunder^2*acceleration/2*/ 
 	}
+
 	
 }
