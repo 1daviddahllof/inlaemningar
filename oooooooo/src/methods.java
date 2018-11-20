@@ -62,6 +62,8 @@ public class methods{
 	public static double velocityToHeight(double velocity) {
 		return Math.pow(velocity, 2)/constants.g/2;/*meter=sekunder^2*acceleration/2*/ 
 	}
-
+	public static double forceToPressure(double force, double area) {
+		return force/area;
+	}
 	
 }

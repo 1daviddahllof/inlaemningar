@@ -15,10 +15,10 @@ public class svar {
 		
 		System.out.println("fråga 5: "+ methods.velocityToHeight(50)+1.8);
 		
-		double energy = methods.kineticEnergy(740, 100/3.6);//jag antar att 100 är i k/h
+		double energy = methods.kineticEnergy(740, 100/3.6);//jag antar att 100 är i km/h
 		System.out.println("fråga 6: "+methods.power(energy, 4.4));
 		
-		double y = 10; //ingen metod här
+		double y = 10; //ingen metod här för jag ville inte
 		int count = 0;
 		while(y>0.5) {
 			y=y*0.99;
