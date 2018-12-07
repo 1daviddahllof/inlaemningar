@@ -157,7 +157,6 @@ public class array_v46 {
 		}
 		int c = 0;
 		int pos = 0;
-		boolean multnames = false;
 		for (int x = 0; x<names.length; x++) {
 			s = 0;
 			for (int y = 0; y<names.length; y++) {
