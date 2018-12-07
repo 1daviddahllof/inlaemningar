@@ -20,7 +20,6 @@ public class metod {
 			}
 		public static String reverse(String str) {
 			int fort = str.length();
-			
 			String ut = "";
 			for (int x = 0;x<fort;x++) {
 				ut = ut+str.charAt(fort-x-1);
