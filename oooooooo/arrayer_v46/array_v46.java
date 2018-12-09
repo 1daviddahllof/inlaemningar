@@ -156,7 +156,6 @@ public class array_v46 {
 			special[x]=0;
 		}
 		int c = 0;
-		int pos = 0;
 		String answer = "";
 		for (int x = 0; x<names.length; x++) {
 			s = 0;
@@ -175,7 +174,6 @@ public class array_v46 {
 			}
 		}
 		return answer;	
-//		ger inte flera namn om förstaplatsen är delad, för att jag orkar inte
 	}
 	
 }
