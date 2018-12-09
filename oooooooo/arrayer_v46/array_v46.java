@@ -19,6 +19,7 @@ public class array_v46 {
 		
 		System.out.println("Hur många finns det av varje tal i numbers? \r\n" + 
 				"(antal 1:or, antal 2:or ...)");
+		System.out.println(" ge först en int = antal värden och sen flera int = värdet");
 //		behövde en array
 		Scanner scn = new Scanner (System.in);
 		int l = scn.nextInt();
