@@ -22,9 +22,9 @@ public class array_v46 {
 //		behövde en array
 		Scanner scn = new Scanner (System.in);
 		int l = scn.nextInt();
-		int[] p=new int[l];
-		for (int x = 0; x<p.length; x++) {
-			p[x] = scn.nextInt();
+		int[] p = new int[l];
+		for (int x = 0; x<l; x++) {
+			p[x]=scn.nextInt();
 		}
 		scn.close();
 		for (int x = 0; x<p.length; x++) {
@@ -157,6 +157,7 @@ public class array_v46 {
 		}
 		int c = 0;
 		int pos = 0;
+		String answer = "";
 		for (int x = 0; x<names.length; x++) {
 			s = 0;
 			for (int y = 0; y<names.length; y++) {
@@ -166,10 +167,14 @@ public class array_v46 {
 			}
 			if (s>c) {
 				c=s;
-				pos = x;
+				answer = names[x];
+				
+			}
+			else if (s==c && !answer.contains(names[x])) {
+				answer = answer.concat(", "+names[x]);
 			}
 		}
-		return names[pos];	
+		return answer;	
 //		ger inte flera namn om förstaplatsen är delad, för att jag orkar inte
 	}
 	
