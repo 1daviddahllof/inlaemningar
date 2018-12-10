@@ -18,7 +18,6 @@ public class what_does_the_fox_say {
 				go.add(kom);
 			}
 			for (String goat : go) {
-				String what = goat;
 				int l = 0;
 				for (int x2 = 0; x2<goat.length(); x2++) {
 					if (goat.charAt(x2)==' ') {
