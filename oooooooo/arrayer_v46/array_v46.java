@@ -45,10 +45,8 @@ public class array_v46 {
 
 		
 		System.out.println("Hur många  unika namn finns i names?");
-//		System.out.println(fr9(names));
-		for (int x = 0; x<fr9(names).length;x++) {
-			System.out.println(fr9(names)[x]);
-		}
+		System.out.println(fr9(names));
+	
 		
 		System.out.println("Vilket är det namn som förekommer flest gånger i names?");
 		System.out.println(fr10(names));
@@ -174,6 +172,7 @@ public class array_v46 {
 		return s;
 	}
 	public static String[] fr9(String[] names) {
+//		skapar en ny array som bara lägger till ett namn om det inte redan finns där
 		int s = 0;
 		String[] uniques = new String[names.length];
 		for (int x = 0; x<names.length; x++) {
