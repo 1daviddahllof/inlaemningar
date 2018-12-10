@@ -1,6 +1,6 @@
 package oooooooo;
 import java.util.Scanner;
-public class man {
+public class been_everywhere {
 
 	public static void main(String[] args) {
 		Scanner scn = new Scanner (System.in);
@@ -11,7 +11,8 @@ public class man {
 			int nl = scn.nextInt();
 			String[] lo = new String[nl];
 			for (int x = 0; x<nl; x++) {
-				lo[x]=scn.nextLine();
+				lo[x]=scn.next();
+				scn.nextLine();
 			}
 			String[] unika = new String[nl];
 			int svar = 0;
@@ -27,7 +28,7 @@ public class man {
 					svar++;
 				}
 			}
-			System.out.println(svar-1);
+			System.out.println(svar);
 		}
 		scn.close();
 	}
