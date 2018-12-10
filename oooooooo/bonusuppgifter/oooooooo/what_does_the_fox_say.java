@@ -8,7 +8,7 @@ public class what_does_the_fox_say {
 		int ö = scn.nextInt();
 		for (int x = 0; x<ö; x++) {
 			scn.nextLine();
-			String s = scn.nextLine();
+			String s = " "+scn.nextLine();
 			ArrayList<String> go = new ArrayList<String>();
 			while (true) {
 				String kom = scn.nextLine();	
