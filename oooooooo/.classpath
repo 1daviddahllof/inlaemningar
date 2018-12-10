@@ -5,5 +5,6 @@
 	<classpathentry kind="src" path="loop"/>
 	<classpathentry kind="src" path="sss"/>
 	<classpathentry kind="src" path="arrayer_v46"/>
+	<classpathentry kind="src" path="everywhere"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

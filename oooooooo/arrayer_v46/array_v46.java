@@ -38,15 +38,17 @@ public class array_v46 {
 		}
 		
 		System.out.println("Hur många namn börjar på bokstaven L i names?");
-		System.out.println(fr7(names, 'l'));
+		System.out.println(fr7(names, 'L'));
 		
 		System.out.println("Hur många namn är fem bokstäver långa i names?");
 		System.out.println(fr8(names, 5));
 
 		
 		System.out.println("Hur många  unika namn finns i names?");
-		System.out.println(fr9(names));
-		
+//		System.out.println(fr9(names));
+		for (int x = 0; x<fr9(names).length;x++) {
+			System.out.println(fr9(names)[x]);
+		}
 		
 		System.out.println("Vilket är det namn som förekommer flest gånger i names?");
 		System.out.println(fr10(names));
@@ -171,22 +173,22 @@ public class array_v46 {
 		}
 		return s;
 	}
-	public static int fr9(String[] names) {
-//		boolean blir false om den hittar två med samma värde
+	public static String[] fr9(String[] names) {
 		int s = 0;
+		String[] uniques = new String[names.length];
 		for (int x = 0; x<names.length; x++) {
-			boolean unique = true;
-			for (int y = 0; y<names.length; y++) {
-				if (x==y) {}
-				else if (names[x].equals(names[y])) {
-					unique = false;
+			boolean un = true;
+			for (int y = 0; y<s; y++) {
+				if (uniques[y].equals(names[x])) {
+				un = false;
 				}
 			}
-			if (unique) {
+			if (un) {
+				uniques[s]=names[x];
 				s++;
 			}
 		}
-		return s;
+		return uniques;
 	}
 	public static String fr10(String[] names) {
 //		här blir antalet av ett visst namn s och när ett viist s är mer en c blir c till s
