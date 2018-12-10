@@ -30,7 +30,6 @@ public class what_does_the_fox_say {
 					}
 				}
 				goat = goat.substring(l, goat.length());
-				System.out.println(goat);
 				while (s.contains(goat)) {
 					int io = s.indexOf(goat);
 					int goatlength = goat.length();
