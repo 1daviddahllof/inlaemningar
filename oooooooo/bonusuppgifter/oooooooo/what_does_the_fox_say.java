@@ -12,7 +12,7 @@ public class what_does_the_fox_say {
 			ArrayList<String> go = new ArrayList<String>();
 			while (true) {
 				String kom = scn.nextLine();	
-				if (kom.contains("what does")) {
+				if (kom.contains("what does the fox say?")) {
 					break;
 				}
 				go.add(kom);
