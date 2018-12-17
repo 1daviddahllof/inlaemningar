@@ -4,7 +4,6 @@ public class Speed_Limit {
 	
 	public static void main(String[] args) {
 		Scanner scn = new Scanner (System.in);
-		
 		while (true) {
 			int n = scn.nextInt();
 			if (n<0) {
