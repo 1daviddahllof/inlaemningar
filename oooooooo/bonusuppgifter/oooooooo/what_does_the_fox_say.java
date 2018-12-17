@@ -37,7 +37,7 @@ public class what_does_the_fox_say {
 			}
 			System.out.println(s);
 		}
-		
+		scn.close();
 	}
 
 }
