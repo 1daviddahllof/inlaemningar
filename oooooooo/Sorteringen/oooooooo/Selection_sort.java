@@ -20,6 +20,7 @@ public class Selection_sort {
 			for (int i = j; i > 0; i--) {
 				comparisons++;
 				if (array[i]<array[i-1]) {
+					swaps++;
 					int temp = array[i];
 					array[i] = array[i-1];
 					array[i-1] = temp;
