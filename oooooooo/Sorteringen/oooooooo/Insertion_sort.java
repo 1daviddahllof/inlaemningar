@@ -4,14 +4,14 @@ public class Insertion_sort {
 
 	public static void main(String[] args) {
 		int[] l = {1, 3 ,1 ,3, 6, 3 ,2 ,9 , 3 ,9};
-		selectionSort(l);
+		insertionSort(l);
 		for (int x = 0; x<10; x++) {
 			System.out.println(l[x]);
 		}
 	}
 //	det verkar som om selectionsort och insertionsort är hopblandade men vad vet jag
 //	jag tror alltså att det här egentligen är insertionsort.
-	public static void selectionSort(int[] array) {
+	public static void insertionSort(int[] array) {
 
 		int comparisons = 0;
 		int swaps = 0;
@@ -24,6 +24,9 @@ public class Insertion_sort {
 					int temp = array[i];
 					array[i] = array[i-1];
 					array[i-1] = temp;
+				}
+				else {
+					break;
 				}
 			}
 		}
