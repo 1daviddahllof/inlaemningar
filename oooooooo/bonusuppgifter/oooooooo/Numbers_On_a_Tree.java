@@ -15,7 +15,6 @@ public class Numbers_On_a_Tree {
 		int svr = n;
 		if (as.length()>2) {
 			String path = as.substring(2);
-			System.out.println(path);
 			for (int x = 0; x<path.length();x++) {
 				int L = toIntExact(Math.round(Math.pow(2, x+1)));
 				int[] row = new int[L];
