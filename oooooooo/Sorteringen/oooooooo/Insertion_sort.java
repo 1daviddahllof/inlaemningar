@@ -10,7 +10,8 @@ public class Insertion_sort {
 		}
 	}
 //	det verkar som om selectionsort och insertionsort är hopblandade men vad vet jag
-//	jag tror alltså att det här egentligen är insertionsort.
+//	jag tror alltså att det här egentligen är insertionsort. och den färdiga 
+//	insertionsorten vi fick är selectionsort
 	public static void insertionSort(int[] array) {
 
 		int comparisons = 0;

@@ -22,7 +22,7 @@ public static void bubbleSort(int[] array) {
 	System.out.println("Comparisons: " + comparisons);
 	System.out.println("Swaps: " + swaps);
 }
-
+// är inte det här en selectioSort?
 public static void insertionSort(int[] array) {
 
 	int comparisons = 0;
