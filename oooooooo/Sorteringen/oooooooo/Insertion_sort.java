@@ -1,6 +1,6 @@
 package oooooooo;
 
-public class Selection_sort {
+public class Insertion_sort {
 
 	public static void main(String[] args) {
 		int[] l = {1, 3 ,1 ,3, 6, 3 ,2 ,9 , 3 ,9};
