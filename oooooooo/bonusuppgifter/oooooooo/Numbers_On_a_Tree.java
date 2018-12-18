@@ -7,12 +7,32 @@ public class Numbers_On_a_Tree {
 		Scanner scn  =  new Scanner(System.in);
 		int H = scn.nextInt();
 		String path = scn.next();
-		int n = 1;
-		for (double x = 1; x<=H; x++) {
+		scn.close();
+		int n = 0;
+		for (double x = 0; x<=H; x++) {
 			n+=toIntExact(Math.round(Math.pow(2, x)));
 		}
-		System.out.println(n);
-		scn.close();
+		int fn = 1;
+		
+		int svr = n;
+		for (int x = 0; x<path.length();x++) {
+			int L = toIntExact(Math.round(Math.pow(2, x+1)));
+			int[] row = new int[L];
+			for (int x2 = 1; x2<=L; x2++) {
+				 row[x2-1]=n-x2;
+			}
+			char p = path.charAt(x);
+			if (p=='L') {
+				 fn*=2;
+			}
+			else if (p=='R') {
+				fn*=2;
+				fn-=1;
+			}
+			svr = row[fn-1];
+			n-=L;
+		}
+		System.out.println(svr);
 	}
 
 }
