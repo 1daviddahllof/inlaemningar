@@ -28,7 +28,7 @@ public class kitten_IN_a_tree {
 			for (int x = 0; x<branchings.size(); x++) {
 				if (branchings.get(x).contains(cat)){
 					if (branchings.get(x).indexOf(cat) != 0) {
-						System.out.print(branchings.get(x).get(0));
+						System.out.print(branchings.get(x).get(0)+" ");
 						cat = branchings.get(x).get(0);
 						sluta = false;
 					}
@@ -38,6 +38,7 @@ public class kitten_IN_a_tree {
 				break;
 			}
 		}
+		scn.close();
 	}
 
 }

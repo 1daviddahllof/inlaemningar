@@ -27,7 +27,7 @@ public class Reverse_Rot {
 			}
 			System.out.println(stronk);
 		}
-
+		scn.close();
 	}
 
 }
