@@ -3,7 +3,7 @@ package oooooooo;
 public class cocktail_sort {
 
 	public static void main(String[] args) {
-		int[] l = {1, 3 ,1 ,3, 6, 3 ,2 ,9 , 3};
+		int[] l = {1, 3 ,1 ,3, 6, 3 ,2 ,9 ,3};
 		cocktailSort(l);
 		for (int x = 0; x<9; x++) {
 			System.out.println(l[x]);

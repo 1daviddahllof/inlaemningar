@@ -7,5 +7,6 @@
 	<classpathentry kind="src" path="arrayer_v46"/>
 	<classpathentry kind="src" path="bonusuppgifter"/>
 	<classpathentry kind="src" path="Sorteringen"/>
+	<classpathentry kind="src" path="switch"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
