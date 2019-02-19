@@ -97,37 +97,37 @@ public class tre_i_rad {
 // om talet är udda betyder det att det spelaren har valt en plats som kan vinna
 // diagonalt
 				
-				row = true;
+				int count = 0;
 				for (int x = 1; x<3; x++) {
 					if (iny+x<3 && inx+x<3) {
-						if (c[inx+x][iny+x]!='O') {
-							row = false;
+						if (c[inx+x][iny+x]=='O') {
+							count++;
 						}
 					}
 					if (iny-x>=0 && inx-x>=0) {
-						if (c[inx-x][iny-x]!='O') {
-							row = false;
+						if (c[inx-x][iny-x]=='O') {
+							count++;
 						}
 					}
 				}
-				if (row) {
+				if (count == 2) {
 					System.out.println("du är en vinnare eller nåt");
 					break;
 				}
-				row = true;
+				count = 0;
 				for (int x = 1; x<3; x++) {
 					if (inx+x<3 && iny-x>=0) {
-						if (c[inx+x][iny-x]!='O') {
-							row = false;
+						if (c[inx+x][iny-x]=='O') {
+							count++;
 						}
 					}
 					if (inx-x>=0 && iny+x<3) {
-						if (c[inx-x][iny+x]!='O') {
-							row = false;
+						if (c[inx-x][iny+x]=='O') {
+							count++;
 						}
 					}
 				}
-				if (row) {
+				if (count == 2) {
 					System.out.println("du är en vinnare eller nåt");
 					break;
 				}
@@ -191,37 +191,37 @@ public class tre_i_rad {
 				break;
 			}
 			if (odd) {
-				row = true;;
+				int count = 0;
 				for (int x = 1; x<3; x++) {
 					if (ry+x<3 && rx+x<3) {
-						if (c[rx+x][ry+x]!='X') {
-							row = false;
+						if (c[rx+x][ry+x]=='X') {
+							count++;
 						}
 					}
 					if (ry-x>=0 && rx-x>=0) {
-						if (c[rx-x][ry-x]!='X') {
-							row = false;
+						if (c[rx-x][ry-x]=='X') {
+							count++;
 						}
 					}
 				}
-				if (row) {
+				if (count == 2) {
 					System.out.println("du är så dålig att det är bättre att slumpa");
 					break;
 				}
-				row = true;
+				count = 0;
 				for (int x = 1; x<3; x++) {
 					if (rx+x<3 && ry-x>=0) {
-						if (c[rx+x][ry-x]!='X') {
-							row = false;
+						if (c[rx+x][ry-x]=='X') {
+							count++;
 						}
 					}
 					if (rx-x>=0 && ry+x<3) {
-						if (c[rx-x][ry+x]!='X') {
-							row = false;
+						if (c[rx-x][ry+x]=='X') {
+							count++;
 						}
 					}
 				}
-				if (row) {
+				if (count == 2) {
 					System.out.println("du är så dålig att det är bättre att slumpa");
 					break;
 				}
