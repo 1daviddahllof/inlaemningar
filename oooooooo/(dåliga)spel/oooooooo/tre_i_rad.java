@@ -114,6 +114,14 @@ public class tre_i_rad {
 					System.out.println("du är en vinnare eller nåt");
 					break;
 				}
+// om vi lägger till ett tal på x och y eller tar bort talet fån x och y får vi
+// en position som ligger diagonalt till punkten x, y
+// i detta fallet är y axeln baklänges och därför blir denna diagonal från
+// vänstra hörnet högst upp till högra hörnet längst ner
+// vi glömmer att räkna O:et som vi redan vet om och testar om dom andra också är
+// O om den hittar två betyder det att det är tre i rad
+				
+				
 				count = 0;
 				for (int x = 1; x<3; x++) {
 					if (inx+x<3 && iny-x>=0) {
@@ -132,6 +140,8 @@ public class tre_i_rad {
 					break;
 				}
 			}
+// här är samma sak men med den paralella diagonalen som
+
 			boolean all = true;
 			for (int x = 0; x<3; x++) {
 				for (int y = 0; y<3; y++) {
@@ -145,11 +155,17 @@ public class tre_i_rad {
 				System.out.println("nu blev det lika");
 				break;
 			}
+// här ser vi om det finns någon T kvar eller om spelet blev lika
+// jag kunde ha gjort det här genom att räkna drag och det skulle ha varit mer
+// effektivt, men jag ändrar det inte
+			
 			int rx, ry;
 			do {
 				rx = (int) (Math.random()*3);
 				ry = (int) (Math.random()*3);
 			} while (c[rx][ry]!='T');
+// här hittar vi slumpmässiga kordinater och börjar om om platsen inte är tom
+			
 			int X = rx+1;
 			int ryt = ry;
 			while (ryt>0) {
@@ -157,6 +173,12 @@ public class tre_i_rad {
 				X+=3;
 			}
 			odd = false;
+// jag undrar hur nödvändigt det var att se om vi ska testa för
+// diagonal vinst på detta sätt, så här men aja
+
+// här under är massa kopierad kod som testar om X får tre i rad precis som
+// vi gjorde med O. Kanske skulle ha använt metoder
+			
 			if (X%2 != 0) {
 				odd = true;
 			}
