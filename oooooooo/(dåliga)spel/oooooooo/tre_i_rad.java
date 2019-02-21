@@ -22,6 +22,7 @@ public class tre_i_rad {
 
 		int count = 0;
 		while (true) {
+			
 // spelet fortsätter tills det når en break längre ner
 
 			int inx, iny;
@@ -68,10 +69,20 @@ public class tre_i_rad {
 
 			if (tre(c, odd, inx, iny, 'O')) {
 				System.out.println("du är en dålig vinnare");
+				break;
 			}
 
 // tre är en metod längst ner i koden som hitter tre i rad			
 
+			count++;
+			System.out.println(count);
+			if (count == 5) {
+				System.out.println("nu vann ingen");
+				break;
+			}
+			
+// här slutar spelet om planen är fylld
+			
 			int rx, ry;
 			do {
 				rx = (int) (Math.random() * 3);
@@ -104,8 +115,10 @@ public class tre_i_rad {
 
 			if (tre(c, odd, rx, ry, find)) {
 				System.out.println("du är så dålig att det är bättre att slumpa");
+				break;
 			}
-
+			
+			
 		}
 	}
 
