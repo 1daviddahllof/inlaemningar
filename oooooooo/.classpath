@@ -9,5 +9,6 @@
 	<classpathentry kind="src" path="Sorteringen"/>
 	<classpathentry kind="src" path="switch"/>
 	<classpathentry kind="src" path="(dåliga)spel"/>
+	<classpathentry kind="src" path="kattis"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

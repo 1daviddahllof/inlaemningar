@@ -11,8 +11,8 @@ public class gissa {
 		System.out.println("vill du inte testa supersvåra 1 till 1000 challenge?");
 		System.out.println("(ja), (nej)");
 
-		// här hittar vi ett random tiotal och ental och lägger ihop dom för att skapa
-		// en int från 0 till 99
+// här hittar vi ett random tiotal och ental och lägger ihop dom för att skapa
+// en int från 0 till 99
 
 		String svar = scn.nextLine();
 		while (true) {
@@ -51,7 +51,7 @@ public class gissa {
 			}
 // här jämförs gissningen om den är större än mindre än eller lika med random
 // om gissningen är lika med random skriver den ett grattis och tar sig ur loopen
-
+			
 			försök--;
 
 // efter varje iteration blir försök mindre och om försök nåt 0 innan gissningen 
