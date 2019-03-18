@@ -19,8 +19,8 @@ public class sträng {
 				String temp = s;
 				while (temp.contains(maybe)) {
 					temp = temp.replaceAll(maybe, "");
-// om maybe finns i stringen tar vi bort stringen "maybe" tills det inte finns någon maybe i stringen
-// om vi inte har någon kvar vet vi att maybe kan skapa stringen s
+// om stringen "maybe" finns i stringen tar vi bort den tills det inte finns någon maybe i stringen
+// om vi inte har någon char kvar vet vi att maybe kan skapa stringen s
 
 					if (temp.length() == 0) {
 						po.add(maybe);
@@ -35,8 +35,8 @@ public class sträng {
 
 // po har alla möjliga svar och därför sorterar vi dom i alfabetsordning och tar
 // det första i fall vi måste välja mellan flera svar.
-// Jag är inte säker på hur det kan vara möjligt att po.size() är mer än 1 men
-// det står att man ska gjöra så här
+// Jag är inte säker på hur det kan vara möjligt att det finns mer än ett svar
+//  men det står att man ska gjöra så här
 		java.util.Collections.sort(po);
 		System.out.println(po.get(0));
 
