@@ -35,6 +35,8 @@ public class sträng {
 
 // po har alla möjliga svar och därför sorterar vi dom i alfabetsordning och tar
 // det första i fall vi måste välja mellan flera svar.
+// Jag är inte säker på hur det kan vara möjligt att po.size() är mer än 1 men
+// det står att man ska gjöra så här
 		java.util.Collections.sort(po);
 		System.out.println(po.get(0));
 
