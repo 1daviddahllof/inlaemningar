@@ -14,13 +14,13 @@ public class building {
 		// om det står namn exited utan att namn finns i "in" skrivs ANOMALY ut
 
 		Scanner scn = new Scanner(System.in);
-		int np = scn.nextInt() * 2;
+		int np = scn.nextInt();
 
 		ArrayList<String> in = new ArrayList<String>();
 		for (int x = 0; x < np; x++) {
 			System.out.println();
-			String ina = scn.next();
 			String name = scn.next();
+			String ina = scn.next();
 			if (ina.equals("exit")) {
 				System.out.print(name + " exited");
 				if (in.contains(name)) {
