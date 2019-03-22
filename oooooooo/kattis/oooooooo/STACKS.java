@@ -29,7 +29,7 @@ public class STACKS {
 
 		search: while (true) {
 			moves++;
-
+			scn.nextLine();
 			int opsie = actions.size();
 			for (int x = 0; x < opsie; x++) {
 				
@@ -37,6 +37,9 @@ public class STACKS {
 				sn.addAll(actions.get(0));
 				ArrayList<Boolean> snot = new ArrayList<Boolean>();
 				snot.addAll(act.get(0));
+				if (sn.size() > N + 2) {
+					System.out.println(sn.get(sn.size()-1));
+				}
 				int end = sn.size(), in = sn.get(0), fl = sn.get(1);
 				boolean actiona = snot.get(0), actionb = snot.get(1), actionc = snot.get(2);
 
@@ -111,9 +114,14 @@ public class STACKS {
 		if (now.get(1) == 1) {
 			return false;
 		}
+		int last = now.size() - 1;
+		while (now.get(last) == 0) {
+			now.remove(last);
+			last--;
+		}
 		boolean done = true;
 		int that = now.get(2);
-		for (int u = 3; u < now.size(); u++) {
+		for (int u = 3; u < last; u++) {
 			if (now.get(u) != that) {
 				done = false;
 				break;
