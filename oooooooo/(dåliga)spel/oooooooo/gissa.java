@@ -7,7 +7,7 @@ public class gissa {
 	public static void main(String[] args) {
 		Scanner scn = new Scanner(System.in);
 
-		int random = (int) (Math.random() * 10 + Math.random() * 100);
+		int random = 0;
 		System.out.println("vill du inte testa supersvåra 1 till 1000 challenge?");
 		System.out.println("(ja), (nej)");
 
@@ -17,7 +17,7 @@ public class gissa {
 		String svar = scn.nextLine();
 		while (true) {
 			if (svar.equals("ja")) {
-				random += (int) (Math.random() * 1000);
+				random = (int) (Math.random() * 1000);
 				System.out.println("oj villken våghäst du är");
 				break;
 			}
@@ -25,6 +25,7 @@ public class gissa {
 // här kommer ett random hundratal
 			
 			else if (svar.equals("nej")) {
+				random = (int) (Math.random() * 100);
 				break;
 			}
 		}
