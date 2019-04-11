@@ -4,6 +4,10 @@ import java.util.Scanner;
 import java.util.regex.Pattern;
 
 public class hängande_av_gubbe {
+
+	// Här har vi asciiart ev en fullt hängd gubbe och listor för koordinaterna för
+	// varje char i ordning som de ska visas
+
 	static char[][] ascii = { { ' ', ' ', ' ', '_', '_', '_', '_', '_', '_', '_', '_', ' ', ' ' },
 			{ ' ', ' ', '|', '/', ' ', ' ', ' ', ' ', ' ', ' ', '|' },
 			{ ' ', ' ', '|', ' ', ' ', ' ', ' ', ' ', ' ', '(', '_', ')' },
@@ -15,6 +19,8 @@ public class hängande_av_gubbe {
 			11 };
 	static int[] asciiy = { 7, 7, 7, 7, 7, 7, 6, 5, 4, 3, 2, 1, 0, 1, 0, 0, 0, 0, 0, 0, 1, 2, 2, 2, 3, 3, 3, 4, 5, 5,
 			5 };
+
+	// Här är alla orden som programmet slumpar mellan
 	static String[] words = { "hej", "jag", "du", "är", "tack", "och", "bra", "det", "har", "på", "vad", "älskar", "en",
 			"dig", "till", "inte", "jag älskar dig", "knulla", "kuk", "i", "hur", "ska", "fitta", "om", "vill", "att",
 			"som", "söt", "kan", "med", "puss", "min", "för", "älskling", "din", "mycket", "kram", "var", "när",
@@ -234,25 +240,25 @@ public class hängande_av_gubbe {
 			"Kamma hem något ", "Att misslyckas kapitalt ", "Kasta en blick", "Kasta ett getöga på någon ",
 			"Kasta ett öga på någon ", "Kasta goda pengar efter dåliga ", "Kasta in handduken ",
 			"Kasta ljus över något ", "Kasta loss ", "Kasta paj, även Pajkastning ", "", "Kasta pengar i sjön",
-			"Kasta pengar i sjön ",
-			"Kasta pärlor för svin ", "Kasta sten i glashus ", "Kasta ut barnet med badvattnet ", "Kasta veven ",
-			"Kasta vatten ", "Kasta yxan i sjön ", "Katt bland hermelinerna ", "Katt på hett plåttak ",
-			"Katten på råttan, råttan på repet ... ", "Kattens lek med råttan ", "Kejsarens nya kläder ",
-			"Kila runt hörnet ", "Kila vidare ", "Klammeri med rättvisan ", "Klappat och klart ", "Klara strupen ",
-			"Klart och betalt ", "Klart som korvspad ", "Klen i anden ", "Klen tröst ", "Klockrent ",
-			"Klok som en pudel ", "Klä sig i säck och aska ", "Klä skott ", "Knaka i fogarna ", "Knalla och gå ",
-			"Knappt om utrymme ", "Knyta Hymens band ", "Knyta näven i fickan ", "Knyta sig ", "Knyta till säcken ",
-			"Knäpp på näsan ", "Koka soppa på en spik ", "Kokar ner till ", "Kola vippen ", "Koloss på lerfötter ",
-			"Komma från hjärtat ", "Komma i bakvattnet ", "Komma på efterkälken ", "Komma på grön kvist ",
-			"Komma på kant med någon ", "Komma på skam", "Komma till skott med något ", "Komma till vägs ände ",
-			"Komma undan helskinnad ", "Komma undan med blotta förskräckelsen ", "Komma under lupp ",
-			"Komma ur askan i elden ", "Kors i taket ", "Kosta skjortan ", "Kratta manegen ", "Krossa någons hjärta ",
-			"Krypa till korset ", "Kryssa mellan Skylla och Karybdis ", "Kräla i stoftet ", "Kunna försätta berg ",
-			"Kusten är klar ", "Kvällens clou ", "Kyss Karlsson! ", "Kyss mig i arslet! ",
-			"Kyssa sin faster att kyssa sin faster ", "Känna hur vinden blåser ", "Känna lössen på gången ",
-			"Känna någon på pulsen ", "Känna sina löss på gången ", "Känna sina pappenheimare ",
-			"Käringen mot strömmen ", "Köpa grisen i säcken ", "Köra någon på porten ", "Kör i vind! ",
-			"Kör så det ryker! ", "Köra huvudet i väggen ", "Körd i grus ", "Kött på benen ", "L", "Lag och ordning ",
+			"Kasta pengar i sjön ", "Kasta pärlor för svin ", "Kasta sten i glashus ",
+			"Kasta ut barnet med badvattnet ", "Kasta veven ", "Kasta vatten ", "Kasta yxan i sjön ",
+			"Katt bland hermelinerna ", "Katt på hett plåttak ", "Katten på råttan, råttan på repet ... ",
+			"Kattens lek med råttan ", "Kejsarens nya kläder ", "Kila runt hörnet ", "Kila vidare ",
+			"Klammeri med rättvisan ", "Klappat och klart ", "Klara strupen ", "Klart och betalt ",
+			"Klart som korvspad ", "Klen i anden ", "Klen tröst ", "Klockrent ", "Klok som en pudel ",
+			"Klä sig i säck och aska ", "Klä skott ", "Knaka i fogarna ", "Knalla och gå ", "Knappt om utrymme ",
+			"Knyta Hymens band ", "Knyta näven i fickan ", "Knyta sig ", "Knyta till säcken ", "Knäpp på näsan ",
+			"Koka soppa på en spik ", "Kokar ner till ", "Kola vippen ", "Koloss på lerfötter ", "Komma från hjärtat ",
+			"Komma i bakvattnet ", "Komma på efterkälken ", "Komma på grön kvist ", "Komma på kant med någon ",
+			"Komma på skam", "Komma till skott med något ", "Komma till vägs ände ", "Komma undan helskinnad ",
+			"Komma undan med blotta förskräckelsen ", "Komma under lupp ", "Komma ur askan i elden ", "Kors i taket ",
+			"Kosta skjortan ", "Kratta manegen ", "Krossa någons hjärta ", "Krypa till korset ",
+			"Kryssa mellan Skylla och Karybdis ", "Kräla i stoftet ", "Kunna försätta berg ", "Kusten är klar ",
+			"Kvällens clou ", "Kyss Karlsson! ", "Kyss mig i arslet! ", "Kyssa sin faster att kyssa sin faster ",
+			"Känna hur vinden blåser ", "Känna lössen på gången ", "Känna någon på pulsen ",
+			"Känna sina löss på gången ", "Känna sina pappenheimare ", "Käringen mot strömmen ",
+			"Köpa grisen i säcken ", "Köra någon på porten ", "Kör i vind! ", "Kör så det ryker! ",
+			"Köra huvudet i väggen ", "Körd i grus ", "Kött på benen ", "L", "Lag och ordning ",
 			"Lagens arm, lagens väktare ", "Lagvrängare ", "Lapp på luckan ", "Larva sig ", "Le i mjugg ",
 			"Leka med elden ", "Leka rommen av sig ", "Lengräddad ", "Leta efter en nål i en höstack ",
 			"Leta efter något med ljus och lykta ", "Leva loppan ", "Leva på hoppet", "Leva som man lär ",
@@ -359,18 +365,17 @@ public class hängande_av_gubbe {
 			"Sticka i ögonen ", "Sticka under stol med ", "Sticka ut hakan ", "Stiga åt huvudet ",
 			"Stirra sig blind på något ", "Stolt som en tupp ", "Storm i ett vattenglas ", "Strama tyglar ",
 			"Strid på kniven ", "Strida om påvens skägg ", "Stryka med ", "Stryka någon medhårs ",
-			"Stryka på fötterna ", "Sträcka vapen ", "Strö pärlor för svinen ", "Strö salt i såren ",
-			"Styv i korken ", "Styv i nacken ", "Stå för fiolerna ", "Stå handfallen ", "Stå i ljusan låga ",
-			"Stå i rampljuset ", "Stå i skottgluggen ", "Stå i valet och kvalet ", "Stå inför skranket ",
-			"Stå med armarna i kors ", "Stå med båda fötterna på jorden ", "Stå med mössan i näven ",
-			"Hamna med skägget i brevlådan ", "Stå med två tomma händer ",
-			"Stå med tvättad hals ", "Stå och väga ", "Stå pall för något ", "Stå på egna ben ",
-			"Stå på god fot med någon ", "Stå på näsan ", "Stå på spel ", "Stå på sig ", "Stå på öronen ",
-			"Stå sitt kast ", "Stå som fallen från skyarna ", "Stå upp i halsen ", "Stå vid skampålen ",
-			"Stånga hornen av sig ", "Stånga sig blodig ", "Ställa någon mot väggen ", "Ställa sig i skamvrån ",
-			"Ställa till svars ", "Ställas i dålig dager ", "Stämma i bäcken ", "Stöpt i samma form ",
-			"Störst och värst i hela Bofors ", "Stöta och blöta något ", "Stöta på patrull ", "Stötts och blötts ",
-			"Suga på karamellen ", "Suga på ramarna ", "Summa summarum ", "Surfa på nätet ",
+			"Stryka på fötterna ", "Sträcka vapen ", "Strö pärlor för svinen ", "Strö salt i såren ", "Styv i korken ",
+			"Styv i nacken ", "Stå för fiolerna ", "Stå handfallen ", "Stå i ljusan låga ", "Stå i rampljuset ",
+			"Stå i skottgluggen ", "Stå i valet och kvalet ", "Stå inför skranket ", "Stå med armarna i kors ",
+			"Stå med båda fötterna på jorden ", "Stå med mössan i näven ", "Hamna med skägget i brevlådan ",
+			"Stå med två tomma händer ", "Stå med tvättad hals ", "Stå och väga ", "Stå pall för något ",
+			"Stå på egna ben ", "Stå på god fot med någon ", "Stå på näsan ", "Stå på spel ", "Stå på sig ",
+			"Stå på öronen ", "Stå sitt kast ", "Stå som fallen från skyarna ", "Stå upp i halsen ",
+			"Stå vid skampålen ", "Stånga hornen av sig ", "Stånga sig blodig ", "Ställa någon mot väggen ",
+			"Ställa sig i skamvrån ", "Ställa till svars ", "Ställas i dålig dager ", "Stämma i bäcken ",
+			"Stöpt i samma form ", "Störst och värst i hela Bofors ", "Stöta och blöta något ", "Stöta på patrull ",
+			"Stötts och blötts ", "Suga på karamellen ", "Suga på ramarna ", "Summa summarum ", "Surfa på nätet ",
 			"Svagaste länken i kedjan ", "Svansen mellan benen ", "Svarta fåret ", "Svarte Petter ", "Svida i skinnet ",
 			"Svårfjällad fisk ", "Svälja det beska pillret ", "Svära i kyrkan ", "Sväva i ovisshet ",
 			"Sväva mellan liv och död ", "Sväva på moln ", "Sväva på målet ", "Sväva på rosa moln ", "Syna i sömmarna ",
@@ -382,9 +387,9 @@ public class hängande_av_gubbe {
 			"Sätta bocken till trädgårdsmästare ", "Sätta en rova ", "Sätta fingret på något ", "Sätta in nådastöten ",
 			"Sätta käppar i hjulet ", "Sätta livet till ", "Sätta munkavle på någon ",
 			"Sätta myror i huvudet på någon ", "Sätta ner foten ", "Sätta någon på det hala ",
-			"Sätta någon på piedestal ", "Sätta någon på plats ", "Sätta någon på potta ",
-			"Sätta något på kartan ", "Sätta något på spel ", "Sätta något under lupp ", "Sätta p för något ",
-			"Sätta punkt för något ", "Sätta sig på bakhasorna ", "Sätta sig på höga hästar ", "Sätta sig på tvären ",
+			"Sätta någon på piedestal ", "Sätta någon på plats ", "Sätta någon på potta ", "Sätta något på kartan ",
+			"Sätta något på spel ", "Sätta något under lupp ", "Sätta p för något ", "Sätta punkt för något ",
+			"Sätta sig på bakhasorna ", "Sätta sig på höga hästar ", "Sätta sig på tvären ",
 			"Sätta sitt ljus under skäppan ", "Sätta sprätt på pengarna ", "Sätta till alla klutar ",
 			"Sätta värde på något ", "Söndra och härska ", "Ta bladet från munnen ", "Ta pucken ", "Ta den i tvåan ",
 			"Ta det kallt ", "Ta det lite pö om pö ", "Ta det långa benet före ", "Ta det med en klackspark ",
@@ -404,13 +409,13 @@ public class hängande_av_gubbe {
 			"Tala ur skägget ", "Tappa ansiktet ", "Tappa greppet ", "Tappa hakan ", "Tappa huvudet ",
 			"Tappa koncepten ", "Tappa målföret ", "Tappad bakom en vagn ", "Tiden har runnit ut ", "Tidens tand ",
 			"Tids nog ", "Till det yttersta ", "Till råga på allt ", "Till sista andetaget ", "Till syvende och sist ",
-			"Till yttermera visso ", "Timglaset är fullt ", "Titta för djupt i glaset",
-			"Titta snett på någon", "Tolv öl räcker till alla ", "Tomma ord ", "Tomt i ladan", "Toppa laget ",
-			"Trampa i klaveret ", "Trampa inte rödbetor i mossen ", "Trampa på en öm tå ", "Trampa spiken i botten ",
-			"Trampa vatten ", "Tredje gången gillt ", "Tretton på dussinet ", "Trilla av pinn ", "Trolla med knäna ",
-			"Tror, det gör man i kyrkan ", "Trycka ner i skoskaften ", "Trångt om saligheten ",
-			"Träffa den rätta ", "Tröst för tigerhjärtan", "Tulipanaros ", "Tummen i ögat ", "Tupp i halsen ",
-			"Tvätta pengar ", "Tvätta sin smutsiga byk", "Tycka skjortan är trång ", "..., tyckte stämman ",
+			"Till yttermera visso ", "Timglaset är fullt ", "Titta för djupt i glaset", "Titta snett på någon",
+			"Tolv öl räcker till alla ", "Tomma ord ", "Tomt i ladan", "Toppa laget ", "Trampa i klaveret ",
+			"Trampa inte rödbetor i mossen ", "Trampa på en öm tå ", "Trampa spiken i botten ", "Trampa vatten ",
+			"Tredje gången gillt ", "Tretton på dussinet ", "Trilla av pinn ", "Trolla med knäna ",
+			"Tror, det gör man i kyrkan ", "Trycka ner i skoskaften ", "Trångt om saligheten ", "Träffa den rätta ",
+			"Tröst för tigerhjärtan", "Tulipanaros ", "Tummen i ögat ", "Tupp i halsen ", "Tvätta pengar ",
+			"Tvätta sin smutsiga byk", "Tycka skjortan är trång ", "..., tyckte stämman ",
 			"Tystnaden talar för sig själv ", "Två sidor av samma mynt ", "Två sina händer ", "Tår på tand ",
 			"Tårta på tårta ", "Tända på alla fyra eller Tända på alla cylindrar ", "Tälja guld med pennkniv ",
 			"Tänka fritt är stort, men tänka rätt är större ", "Tänk först och tala sen ", "Tänka på refrängen ",
@@ -435,16 +440,15 @@ public class hängande_av_gubbe {
 			"Vara på sin vakt ", "Vara på smällen ", "Vara på språng", "Vara på tapeten", "Vara på upphällningen ",
 			"Vara på vippen ", "Vara rakryggad eller Vara rak i ryggen ", "Vara rund under fötterna ",
 			"Vara satt på bar backe ", "Vara sig själv nog ", "Vara sig själv närmast ", "Vara sin egen lyckas smed ",
-			"Vara skarpaste kniven i lådan[källa behövs] ", "Vara skrivet i stjärnorna ",
-			"Vara som gjord för något ", "Vara som klippt och skuren för något ", "Vara stadd vid kassa ",
-			"Vara surrad vid masten", "Vara tillbaka på ruta ett ", "Vara topp tunnor rasande ",
-			"Vara torr bakom öronen ", "Vara tu tal om något ", "Vara under uppsegling ", "Vara ute efter något",
-			"Vara ute i kylan ", "Vara ute i ogjort väder ", "Vara ute på tunn is ",
-			"Vara utom sig av vrede ", "Vara uppe med tuppen ", "Vara vid sina sinnens fulla bruk ",
-			"Vara vid sunda vätskor ", "Vara värt papperet det är skrivet på ", "Vara yr i mössan ", "",
-			"Varje moln har en silverkant", "Varför är allt en trasa? ", "Varje moln har en silverkant ",
-			"Varken bu eller bä ", "Varken hackat eller malet ", "Varm i kläderna ", "Varm om hjärtat ",
-			"Verkligheten överträffar dikten ", "Veta hur en slipsten ska dras ", "Veta hut ",
+			"Vara skarpaste kniven i lådan[källa behövs] ", "Vara skrivet i stjärnorna ", "Vara som gjord för något ",
+			"Vara som klippt och skuren för något ", "Vara stadd vid kassa ", "Vara surrad vid masten",
+			"Vara tillbaka på ruta ett ", "Vara topp tunnor rasande ", "Vara torr bakom öronen ",
+			"Vara tu tal om något ", "Vara under uppsegling ", "Vara ute efter något", "Vara ute i kylan ",
+			"Vara ute i ogjort väder ", "Vara ute på tunn is ", "Vara utom sig av vrede ", "Vara uppe med tuppen ",
+			"Vara vid sina sinnens fulla bruk ", "Vara vid sunda vätskor ", "Vara värt papperet det är skrivet på ",
+			"Vara yr i mössan ", "", "Varje moln har en silverkant", "Varför är allt en trasa? ",
+			"Varje moln har en silverkant ", "Varken bu eller bä ", "Varken hackat eller malet ", "Varm i kläderna ",
+			"Varm om hjärtat ", "Verkligheten överträffar dikten ", "Veta hur en slipsten ska dras ", "Veta hut ",
 			"Veta vad klockan är slagen ", "Veta var skon klämmer ", "Vi är alla olika i Herrens hage ",
 			"Vila på hanen", "Vila på sina lagrar ", "Vilja sjunka genom jorden ",
 			"Vind för våg eller Driva vind för våg ", "Visa framfötterna ", "Visa sig från sin goda sida ",
@@ -463,10 +467,16 @@ public class hängande_av_gubbe {
 
 	public static void main(String[] args) {
 		Scanner scn = new Scanner(System.in);
+
+		// loopen är till för att man ska kunna spela igen utan att starta om koden
+
 		while (true) {
 			System.out.println("kena kompis dags att hänga gubbe");
 			System.out.println("vill tu testa supersvåra versionen med uttryck istället?");
 			System.out.println("(ja) (nej)");
+
+			// Här slumpas ett ord eller uttryck från en av listorna
+
 			String hemligt;
 			if (yesNo()) {
 				hemligt = uttryck[(int) (Math.random() * uttryck.length)];
@@ -474,7 +484,9 @@ public class hängande_av_gubbe {
 			} else {
 				hemligt = words[(int) (Math.random() * words.length)];
 			}
-		
+
+			// Här tas en integer in som används senare
+
 			int försök;
 			System.out.println("Hur många försök ska du ha?");
 			do {
@@ -482,7 +494,8 @@ public class hängande_av_gubbe {
 				försök = inInt(scn.nextLine());
 			} while (försök < 1);
 
-			
+			// Vet är en string som just nu innehåller en " _" eller " " per char i hemligt
+
 			String vet = "";
 			for (int i = 0; i < hemligt.length(); i++) {
 				if (hemligt.charAt(i) != ' ') {
@@ -492,35 +505,61 @@ public class hängande_av_gubbe {
 				}
 			}
 
+			// asciiart är en tom char[][] som kommer att fyllas med chars när ett fel svar
+			// ges och sedan printas.
+
 			char[][] asciiart = new char[8][12];
+
+			// asciiSet metoden fyller upp asciiart tills antalet chars kvar är samma som
+			// antalet försök med hjälp av int drag.
 
 			int drag = asciix.length - försök - 1;
 			for (int x = 0; x < drag; x++) {
 				asciiSet(asciiart, x);
 			}
+
+			// String gissat kommer att användas nedanför för att komma ihåg användarens
+			// tidigare gissningar
+
 			String gissat = "";
-			for (int y = 0; y < 28; y++) {
-				System.out.println();
-			}
+
+			// Jag tror printaMassaTommaRader metoden förklarar sig själv
+			// Jag kanske skulle ha använt den där konsolen ni gav oss, men det här funkar
+			// helt okej om din skärm inte är för hög
+
+			printaMassaTommaRader();
+
+			// asciiPrint för att visa den fina gubben
 			asciiPrint(asciiart, drag);
+
 			while (true) {
+
 				System.out.println(vet);
 				System.out.println("Antal försök kvar: " + försök);
 				System.out.println("Vill du gissa hela? (ja), (nej)");
 				if (yesNo()) {
 					String answer;
+
+					// Answer metoden gör så att loopen bara slutar om answer blir en String med
+					// endast bokstäver.
+					// inte helt nödvändigt, men jag skrev det och det funkar
+					
 					do {
-						System.out.println("ge mig en string");
+						System.out.println("ge mig en string med bara bokstäver");
 						answer = scn.nextLine();
 					} while (!answer(answer));
+					
+					// Hemligt är alltid i små bokstäver, så därför måste answer osckså vara det.
+					
 					answer = answer.toLowerCase();
+					
+					// nu kan man jämföra
+					
 					if (answer.equals(hemligt)) {
 						System.out.println("du gissade rätt och vann");
 						break;
 					} else {
-						for (int y = 0; y < 28; y++) {
-							System.out.println();
-						}
+						printaMassaTommaRader();
 						System.out.println("du gissade inte rätt tyvärr");
 						drag++;
 						försök--;
@@ -540,7 +579,7 @@ public class hängande_av_gubbe {
 						that = that.toUpperCase();
 					} while (gissat.contains(that));
 					gissat = gissat.concat(" " + that);
-			
+
 					that = that.toLowerCase();
 					int hm = hemligt.indexOf(that);
 
@@ -558,19 +597,12 @@ public class hängande_av_gubbe {
 							System.out.println("svaret var alltså: " + hemligt);
 							break;
 						}
-						for (int y = 0; y < 28; y++) {
-							System.out.println();
-						}
-						for (int y = 0; y < 28; y++) {
-							System.out.println();
-						}
+						printaMassaTommaRader();
 						System.out.println("nämen du gissade rätt ändå");
 						asciiPrint(asciiart, drag);
 						continue;
 					}
-					for (int y = 0; y < 28; y++) {
-						System.out.println();
-					}
+					printaMassaTommaRader();
 					System.out.println("du gissade fel");
 					drag++;
 					försök--;
@@ -625,6 +657,7 @@ public class hängande_av_gubbe {
 	public static boolean answer(String answer) {
 		return Pattern.matches("[a-zA-ZåäöÅÄÖ ]+", answer);
 	}
+
 	public static boolean yesNo() {
 		Scanner scn = new Scanner(System.in);
 		boolean yes = false;
@@ -647,4 +680,9 @@ public class hängande_av_gubbe {
 		return yes;
 	}
 
+	public static void printaMassaTommaRader() {
+		for (int y = 0; y < 28; y++) {
+			System.out.println();
+		}
+	}
 }
