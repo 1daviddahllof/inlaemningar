@@ -512,6 +512,8 @@ public class hängande_av_gubbe {
 
 			// asciiSet metoden fyller upp asciiart tills antalet chars kvar är samma som
 			// antalet försök med hjälp av int drag.
+			// Jag vet inte om det hade varit snabbare att bara använda integern försök, och
+			// konvertera den till drag när det behövs
 
 			int drag = asciix.length - försök - 1;
 			for (int x = 0; x < drag; x++) {
@@ -543,18 +545,18 @@ public class hängande_av_gubbe {
 					// Answer metoden gör så att loopen bara slutar om answer blir en String med
 					// endast bokstäver.
 					// inte helt nödvändigt, men jag skrev det och det funkar
-					
+
 					do {
 						System.out.println("ge mig en string med bara bokstäver");
 						answer = scn.nextLine();
 					} while (!answer(answer));
-					
+
 					// Hemligt är alltid i små bokstäver, så därför måste answer osckså vara det.
-					
+
 					answer = answer.toLowerCase();
-					
+
 					// nu kan man jämföra
-					
+
 					if (answer.equals(hemligt)) {
 						System.out.println("du gissade rätt och vann");
 						break;
@@ -568,6 +570,11 @@ public class hängande_av_gubbe {
 				} else {
 					String that;
 					System.out.println("Gissa på en bokstav.");
+
+					// här kommer du inte ut ifrån om svaret ligger i gissat, eller
+					// svaret är en tom rad
+					// jag ville ha mera tester, men det lyckades inte av någon anledning
+
 					do {
 						System.out.println("Dina tidigare gissningar är:");
 						System.out.println(gissat);
@@ -578,43 +585,69 @@ public class hängande_av_gubbe {
 						that = that.substring(0, 1);
 						that = that.toUpperCase();
 					} while (gissat.contains(that));
+
+					// nu är din nya char i gissat stringen
+
 					gissat = gissat.concat(" " + that);
+
+					// för att se om that finns i hemligt måste vi ha den i små bokstäver
 
 					that = that.toLowerCase();
 					int hm = hemligt.indexOf(that);
 
+					// om hm är -1 betyder det att hemligt.indexOf(that) inte hittade något och
+					// gissningen var fel
+
 					if (hm > -1) {
-						that = that.toUpperCase();
-						String that2 = that.toLowerCase();
+
+						// här tas alla instanser av that i hemligt och lägger till that i vet där de
+						// finns i hemligt
+
+						String that2 = that.toUpperCase();
 						String temp = hemligt;
 						do {
-							vet = vet.substring(0, hm * 2) + that + vet.substring(hm * 2 + 1);
+							vet = vet.substring(0, hm * 2) + that2 + vet.substring(hm * 2 + 1);
 							temp = temp.substring(0, hm) + " " + temp.substring(hm + 1);
-							hm = temp.indexOf(that2);
+							hm = temp.indexOf(that);
 						} while (hm > -1);
+
+						// om vet inte längre har några underscores är hemligt hittat och spelaren
+						// vinner
+
 						if (!vet.contains("_")) {
 							System.out.println("nämen där har du ju svaret");
 							System.out.println("svaret var alltså: " + hemligt);
 							break;
 						}
+
+						// annars fortsätter spelet utan att ett försök drags
+
 						printaMassaTommaRader();
 						System.out.println("nämen du gissade rätt ändå");
 						asciiPrint(asciiart, drag);
 						continue;
 					}
+
+					// om hm då är -1 dras ett försök och ett drag läggs till
+
 					printaMassaTommaRader();
 					System.out.println("du gissade fel");
 					drag++;
 					försök--;
 					asciiPrint(asciiart, drag);
 				}
-
+				
+				//nu i slutet av loopen ser vi om försök har nått 0 och breakar i så fall
+				
 				if (försök == 0) {
 					System.out.println("oj du förlorade, försöken tog slut");
 					System.out.println("svaret var: " + hemligt);
 					break;
 				}
 			}
+			
+			// om användaren svarar nej breakar loopen och programmet säjer hejdå
+			
 			System.out.println("Vill du spela igen? (ja), (nej)");
 			if (!yesNo()) {
 				break;
