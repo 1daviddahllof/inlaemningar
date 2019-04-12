@@ -636,20 +636,21 @@ public class hängande_av_gubbe {
 					försök--;
 					asciiPrint(asciiart, drag);
 				}
-				
-				//nu i slutet av loopen ser vi om försök har nått 0 och breakar i så fall
-				
+
+				// nu i slutet av loopen ser vi om försök har nått 0 och breakar i så fall
+
 				if (försök == 0) {
 					System.out.println("oj du förlorade, försöken tog slut");
 					System.out.println("svaret var: " + hemligt);
 					break;
 				}
 			}
-			
+
 			// om användaren svarar nej breakar loopen och programmet säjer hejdå
-			
+
 			System.out.println("Vill du spela igen? (ja), (nej)");
 			if (!yesNo()) {
+				System.out.println("hejdå");
 				break;
 			}
 		}
@@ -657,6 +658,11 @@ public class hängande_av_gubbe {
 	}
 
 	public static int inInt(String in) {
+
+		// Character.getNumericValue(Char) ger -1 eller högre än 9 om charen inte är 1-9
+		// I så fall returnas -1 för att visa att Stringen inte är ett heltal
+		// annars så läggs charen till på rätt plats i integern som returnas
+
 		int out = 0;
 		for (int i = 0; i < in.length(); i++) {
 			int p = Character.getNumericValue(in.charAt(i));
@@ -669,11 +675,18 @@ public class hängande_av_gubbe {
 		return out;
 	}
 
-	public static void asciiPrint(char[][] asciiart, int försök) {
-		if (försök < 0) {
+	public static void asciiPrint(char[][] asciiart, int drag) {
+
+		// Om drag är mindre än noll betyder det att användaren har valt så många försök
+		// att charsen i asciiart inte räcker till för varje försök
+
+		if (drag < 0) {
 			return;
 		}
-		asciiSet(asciiart, försök);
+
+		// AsciiSet fixar asciiart så att en till char läggs till, och sedan printas den
+
+		asciiSet(asciiart, drag);
 		for (int y = 0; y < asciiart.length; y++) {
 			for (int x = 0; x < asciiart[y].length; x++) {
 				System.out.print(asciiart[y][x]);
@@ -683,37 +696,49 @@ public class hängande_av_gubbe {
 	}
 
 	public static void asciiSet(char[][] asciiart, int försök) {
+
+		// Jag såg till att index x i asciix och asciiy (int[]) ger koordinater för
+		// platsen där nästa char som ska läggas till ligger i ascii (char[][])
+
 		int cy = asciiy[försök], cx = asciix[försök];
 		asciiart[cy][cx] = ascii[cy][cx];
 	}
 
 	public static boolean answer(String answer) {
+
+		// jag hittade på google, java metoden Pattern.matches som här undersöker om
+		// alla charsen i en string är bokstäver eller space, med äåö lagt till
+
 		return Pattern.matches("[a-zA-ZåäöÅÄÖ ]+", answer);
 	}
 
 	public static boolean yesNo() {
+		
+		// Denna metod fortsätter i eviget om String input = scn.nextline() inte blir ja eller nej
+		// om input är ja returnas true och false om input är nej
+		
 		Scanner scn = new Scanner(System.in);
-		boolean yes = false;
 		String input;
 		while (true) {
 			input = scn.nextLine();
 			input = input.toLowerCase();
 			if (answer(input)) {
 				if (input.equals("ja")) {
-					yes = true;
 					System.out.println("du svarade ja");
-					break;
+					return true;
 				} else if (input.equals("nej")) {
 					System.out.println("du svarade nej");
-					break;
+					return false;
 				}
 			}
 			System.out.println("du skrev lite fel");
 		}
-		return yes;
 	}
 
 	public static void printaMassaTommaRader() {
+		
+		// denna metod skriver 28 tomma rader
+		
 		for (int y = 0; y < 28; y++) {
 			System.out.println();
 		}
