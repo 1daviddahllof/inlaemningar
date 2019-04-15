@@ -6,17 +6,8 @@ public class vafan {
 
 	public static void main(String[] args) {
 		Scanner scn = new Scanner (System.in);
-		String o = "";
-		do {
-		o = scn.nextLine();
-		if (hängande_av_gubbe.answer(o)) {
-			continue;
-		} else {
-			break;
-		}
+		System.out.println(hängande_av_gubbe.asciix.length);
 		
-		} while (true);
-		System.out.println(hängande_av_gubbe.answer(o));
 	}
 
 }

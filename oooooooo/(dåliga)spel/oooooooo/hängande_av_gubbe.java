@@ -679,6 +679,8 @@ public class hängande_av_gubbe {
 
 		// Om drag är mindre än noll betyder det att användaren har valt så många försök
 		// att charsen i asciiart inte räcker till för varje försök
+		// Det finns mer chars i ascii än bokstäver i alfabedet dock så det är ganska
+		// meningslöst
 
 		if (drag < 0) {
 			return;
@@ -713,10 +715,11 @@ public class hängande_av_gubbe {
 	}
 
 	public static boolean yesNo() {
-		
-		// Denna metod fortsätter i eviget om String input = scn.nextline() inte blir ja eller nej
+
+		// Denna metod fortsätter i eviget om String input = scn.nextline() inte blir ja
+		// eller nej
 		// om input är ja returnas true och false om input är nej
-		
+
 		Scanner scn = new Scanner(System.in);
 		String input;
 		while (true) {
@@ -736,9 +739,9 @@ public class hängande_av_gubbe {
 	}
 
 	public static void printaMassaTommaRader() {
-		
+
 		// denna metod skriver 28 tomma rader
-		
+
 		for (int y = 0; y < 28; y++) {
 			System.out.println();
 		}
