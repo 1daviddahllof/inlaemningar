@@ -480,12 +480,16 @@ public class hängande_av_gubbe {
 			String hemligt;
 			if (yesNo()) {
 				hemligt = uttryck[(int) (Math.random() * uttryck.length)];
-				hemligt = hemligt.toLowerCase();
 			} else {
 				hemligt = words[(int) (Math.random() * words.length)];
 			}
 
-			// Här tas en integer in som används senare
+			// en sak gick fel med hämtningen av ord och det här var det
+			// snabbaste sättet för mig att fixa det, men inte för datorn
+
+			hemligt = fixaSaken(hemligt);
+
+			// Här hämtas en integer in som används senare
 
 			int försök;
 			System.out.println("Hur många försök ska du ha?");
@@ -551,9 +555,10 @@ public class hängande_av_gubbe {
 						answer = scn.nextLine();
 					} while (!answer(answer));
 
-					// Hemligt är alltid i små bokstäver, så därför måste answer osckså vara det.
+					// om användaren använde stora bokstäver eller mellanslag på början eller slutet
+					// fixar fixaSaken detta
 
-					answer = answer.toLowerCase();
+					answer = fixaSaken(answer);
 
 					// nu kan man jämföra
 
@@ -745,5 +750,16 @@ public class hängande_av_gubbe {
 		for (int y = 0; y < 28; y++) {
 			System.out.println();
 		}
+	}
+
+	public static String fixaSaken(String hemligt) {
+		hemligt = hemligt.toLowerCase();
+		while (hemligt.charAt(0) == ' ') {
+			hemligt = hemligt.substring(1);
+		}
+		while (hemligt.charAt(hemligt.length() - 1) == ' ') {
+			hemligt = hemligt.substring(0, hemligt.length() - 1);
+		}
+		return hemligt;
 	}
 }
