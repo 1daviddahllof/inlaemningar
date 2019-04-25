@@ -474,7 +474,7 @@ public class hängande_av_gubbe {
 			System.out.println("(ja) (nej)");
 
 			// Här slumpas ett ord eller uttryck från en av listorna
-			String hemligt = "körarn',";
+			String hemligt;
 			if (yesNo()) {
 				hemligt = uttryck[(int) (Math.random() * uttryck.length)];
 			} else {
@@ -573,21 +573,22 @@ public class hängande_av_gubbe {
 					}
 				} else {
 					String that;
-					System.out.println("Gissa på en bokstav.");
 
 					// här kommer du inte ut ifrån om svaret ligger i gissat, eller
 					// svaret är en tom rad
 					// jag ville ha mera tester, men det lyckades inte av någon anledning
 					do {
+						System.out.println("Gissa på en bokstav.");
 						System.out.println("Dina tidigare gissningar är:");
 						System.out.println(gissat);
 						that = scn.nextLine();
 						if (that.length() == 0) {
 							continue;
+							
 						}
 						that = that.substring(0, 1);
 						that = that.toUpperCase();
-					} while (gissat.contains(that));
+					} while (gissat.contains(that) || !Pattern.matches("[A-ZÅÄÖ]+", that.substring(0, 1)));
 
 					// nu är din nya char i gissat stringen
 					gissat = gissat.concat(" " + that);
