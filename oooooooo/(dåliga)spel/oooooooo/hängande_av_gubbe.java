@@ -7,7 +7,6 @@ public class hängande_av_gubbe {
 
 	// Här har vi asciiart ev en fullt hängd gubbe och listor för koordinaterna för
 	// varje char i ordning som de ska visas
-
 	static char[][] ascii = { { ' ', ' ', ' ', '_', '_', '_', '_', '_', '_', '_', '_', ' ', ' ' },
 			{ ' ', ' ', '|', '/', ' ', ' ', ' ', ' ', ' ', ' ', '|' },
 			{ ' ', ' ', '|', ' ', ' ', ' ', ' ', ' ', ' ', '(', '_', ')' },
@@ -469,15 +468,13 @@ public class hängande_av_gubbe {
 		Scanner scn = new Scanner(System.in);
 
 		// loopen är till för att man ska kunna spela igen utan att starta om koden
-
 		while (true) {
 			System.out.println("kena kompis dags att hänga gubbe");
 			System.out.println("vill tu testa supersvåra versionen med uttryck istället?");
 			System.out.println("(ja) (nej)");
 
 			// Här slumpas ett ord eller uttryck från en av listorna
-
-			String hemligt;
+			String hemligt = "körarn',";
 			if (yesNo()) {
 				hemligt = uttryck[(int) (Math.random() * uttryck.length)];
 			} else {
@@ -486,11 +483,15 @@ public class hängande_av_gubbe {
 
 			// en sak gick fel med hämtningen av ord och det här var det
 			// snabbaste sättet för mig att fixa det, men inte för datorn
-
 			hemligt = fixaSaken(hemligt);
+			String hemligt2 = hemligt;
+
+			// kom på att dessa tecken kan kommit med och strular med saker och sånt du vet
+			// ting så där som det gör ofta ibland
+			hemligt = hemligt.replaceAll("'", "");
+			hemligt = hemligt.replaceAll(",", "");
 
 			// Här hämtas en integer in som används senare
-
 			int försök;
 			System.out.println("Hur många försök ska du ha?");
 			do {
@@ -549,7 +550,6 @@ public class hängande_av_gubbe {
 					// Answer metoden gör så att loopen bara slutar om answer blir en String med
 					// endast bokstäver.
 					// inte helt nödvändigt, men jag skrev det och det funkar
-
 					do {
 						System.out.println("ge mig en string med bara bokstäver");
 						answer = scn.nextLine();
@@ -557,13 +557,12 @@ public class hängande_av_gubbe {
 
 					// om användaren använde stora bokstäver eller mellanslag på början eller slutet
 					// fixar fixaSaken detta
-
 					answer = fixaSaken(answer);
 
 					// nu kan man jämföra
-
 					if (answer.equals(hemligt)) {
 						System.out.println("du gissade rätt och vann");
+						System.out.println("svaret var alltså: " + hemligt2);
 						break;
 					} else {
 						printaMassaTommaRader();
@@ -579,7 +578,6 @@ public class hängande_av_gubbe {
 					// här kommer du inte ut ifrån om svaret ligger i gissat, eller
 					// svaret är en tom rad
 					// jag ville ha mera tester, men det lyckades inte av någon anledning
-
 					do {
 						System.out.println("Dina tidigare gissningar är:");
 						System.out.println(gissat);
@@ -592,22 +590,18 @@ public class hängande_av_gubbe {
 					} while (gissat.contains(that));
 
 					// nu är din nya char i gissat stringen
-
 					gissat = gissat.concat(" " + that);
 
 					// för att se om that finns i hemligt måste vi ha den i små bokstäver
-
 					that = that.toLowerCase();
 					int hm = hemligt.indexOf(that);
 
 					// om hm är -1 betyder det att hemligt.indexOf(that) inte hittade något och
 					// gissningen var fel
-
 					if (hm > -1) {
 
 						// här tas alla instanser av that i hemligt och lägger till that i vet där de
 						// finns i hemligt
-
 						String that2 = that.toUpperCase();
 						String temp = hemligt;
 						do {
@@ -618,15 +612,13 @@ public class hängande_av_gubbe {
 
 						// om vet inte längre har några underscores är hemligt hittat och spelaren
 						// vinner
-
 						if (!vet.contains("_")) {
 							System.out.println("nämen där har du ju svaret");
-							System.out.println("svaret var alltså: " + hemligt);
+							System.out.println("svaret var alltså: " + hemligt2);
 							break;
 						}
 
 						// annars fortsätter spelet utan att ett försök drags
-
 						printaMassaTommaRader();
 						System.out.println("nämen du gissade rätt ändå");
 						asciiPrint(asciiart, drag);
@@ -634,7 +626,6 @@ public class hängande_av_gubbe {
 					}
 
 					// om hm då är -1 dras ett försök och ett drag läggs till
-
 					printaMassaTommaRader();
 					System.out.println("du gissade fel");
 					drag++;
@@ -643,16 +634,14 @@ public class hängande_av_gubbe {
 				}
 
 				// nu i slutet av loopen ser vi om försök har nått 0 och breakar i så fall
-
 				if (försök == 0) {
 					System.out.println("oj du förlorade, försöken tog slut");
-					System.out.println("svaret var: " + hemligt);
+					System.out.println("svaret var: " + hemligt2);
 					break;
 				}
 			}
 
 			// om användaren svarar nej breakar loopen och programmet säjer hejdå
-
 			System.out.println("Vill du spela igen? (ja), (nej)");
 			if (!yesNo()) {
 				System.out.println("hejdå");
@@ -667,7 +656,6 @@ public class hängande_av_gubbe {
 		// Character.getNumericValue(Char) ger -1 eller högre än 9 om charen inte är 1-9
 		// I så fall returnas -1 för att visa att Stringen inte är ett heltal
 		// annars så läggs charen till på rätt plats i integern som returnas
-
 		int out = 0;
 		for (int i = 0; i < in.length(); i++) {
 			int p = Character.getNumericValue(in.charAt(i));
@@ -686,13 +674,11 @@ public class hängande_av_gubbe {
 		// att charsen i asciiart inte räcker till för varje försök
 		// Det finns mer chars i ascii än bokstäver i alfabedet dock så det är ganska
 		// meningslöst
-
 		if (drag < 0) {
 			return;
 		}
 
 		// AsciiSet fixar asciiart så att en till char läggs till, och sedan printas den
-
 		asciiSet(asciiart, drag);
 		for (int y = 0; y < asciiart.length; y++) {
 			for (int x = 0; x < asciiart[y].length; x++) {
@@ -715,7 +701,6 @@ public class hängande_av_gubbe {
 
 		// jag hittade på google, java metoden Pattern.matches som här undersöker om
 		// alla charsen i en string är bokstäver eller space, med äåö lagt till
-
 		return Pattern.matches("[a-zA-ZåäöÅÄÖ ]+", answer);
 	}
 
@@ -724,7 +709,6 @@ public class hängande_av_gubbe {
 		// Denna metod fortsätter i eviget om String input = scn.nextline() inte blir ja
 		// eller nej
 		// om input är ja returnas true och false om input är nej
-
 		Scanner scn = new Scanner(System.in);
 		String input;
 		while (true) {
@@ -746,7 +730,6 @@ public class hängande_av_gubbe {
 	public static void printaMassaTommaRader() {
 
 		// denna metod skriver 28 tomma rader
-
 		for (int y = 0; y < 28; y++) {
 			System.out.println();
 		}
