@@ -8,11 +8,7 @@ public class vafan {
 	public static void main(String[] args) {
 		Scanner scn = new Scanner (System.in);
 		String o = scn.nextLine();
-		String ö = o;
-		do {
-			o = scn.nextLine();
-			ö = ö.concat(o);
-		} while (o.length() > 0);
+		
 		
 		
 	}
