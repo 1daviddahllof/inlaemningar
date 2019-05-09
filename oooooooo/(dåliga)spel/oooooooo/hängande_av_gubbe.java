@@ -777,8 +777,8 @@ public class hängande_av_gubbe {
 
 	public static void printaMassaTommaRader() {
 
-		// denna metod skriver 28 + 1 tomma rader
-		for (int y = 0; y < 29; y++) {
+		// denna metod skriver 28 + 1 + 1 tomma rader
+		for (int y = 0; y < 30; y++) {
 			System.out.println();
 		}
 	}
