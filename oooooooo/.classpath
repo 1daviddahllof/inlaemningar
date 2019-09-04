@@ -10,5 +10,6 @@
 	<classpathentry kind="src" path="switch"/>
 	<classpathentry kind="src" path="(dåliga)spel"/>
 	<classpathentry kind="src" path="kattis"/>
+	<classpathentry kind="src" path="repetition"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
