@@ -11,7 +11,7 @@ public class testo {
 		if (n1.edad > n2.edad) {
 			return n1.nombre;
 		} else if(n2.edad == n1.edad) {
-			return "tienen lo mismo edad";
+			return "son de lo mismo edad";
 		} else {
 			return n2.nombre;
 		}
