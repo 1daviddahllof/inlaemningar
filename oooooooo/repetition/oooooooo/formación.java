@@ -1,6 +1,6 @@
 package oooooooo;
 import java.util.Scanner;
-public class array {
+public class formación {
 
 	public static void main(String[] args) {
 		Scanner scn = new Scanner(System.in);
