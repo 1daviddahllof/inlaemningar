@@ -2,9 +2,12 @@ package oooooooo;
 
 public class persona {
 
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
+	int edad;
+	String nombre;
+	
+	public persona(int edad, String nombre) {
+		this.edad = edad;
+		this.nombre = nombre;
 	}
-
+	
 }
