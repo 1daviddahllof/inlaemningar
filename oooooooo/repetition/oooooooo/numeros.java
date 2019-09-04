@@ -18,7 +18,6 @@ public class numeros {
 			System.out.print("verdad");
 			break maneraEstrango;
 		}
-		
 	}
 
 }
