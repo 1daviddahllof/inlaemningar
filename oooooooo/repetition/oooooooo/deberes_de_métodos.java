@@ -33,7 +33,9 @@ public class deberes_de_métodos {
 		}
 		return cosas.toArray();
 	}
-	
+	public static void anagramas(String palabra) {
+		
+	}
 }
 class caja {
 	Object[] matrizDeObjectos;
@@ -55,6 +57,9 @@ class caja {
 			}
 		}
 		return false;
-	}
+	}	
 }
+	
+
+
 
