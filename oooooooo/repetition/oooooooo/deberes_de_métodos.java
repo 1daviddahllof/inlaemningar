@@ -25,6 +25,7 @@ public class deberes_de_métodos {
 		}
 		return atrás;
 	}
+	
 	public static Object[] objectos(Object... fin) {
 		ArrayList<Object> cosas = new ArrayList<Object>();
 		for(Object cosa : fin) {
@@ -32,4 +33,19 @@ public class deberes_de_métodos {
 		}
 		return cosas.toArray();
 	}
+	
 }
+class caja {
+	Object[] matrizDeObjectos;
+	public caja(Object... fin) {
+		// jag kan inte hitta ett sätt att använda objectos metoden här så jag kopierade in den istället som du ser
+		ArrayList<Object> cosas = new ArrayList<Object>();
+		for(Object cosa : fin) {
+			cosas.add(cosa);
+		}
+		this.matrizDeObjectos = cosas.toArray();
+	}
+	
+	public comparador
+}
+
