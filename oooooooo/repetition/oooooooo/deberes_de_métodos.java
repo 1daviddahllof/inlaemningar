@@ -1,5 +1,6 @@
 package oooooooo;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 
 public class deberes_de_métodos {
@@ -24,5 +25,11 @@ public class deberes_de_métodos {
 		}
 		return atrás;
 	}
-	
+	public static Object[] objectos(Object... fin) {
+		ArrayList<Object> cosas = new ArrayList<Object>();
+		for(Object cosa : fin) {
+			cosas.add(cosa);
+		}
+		return cosas.toArray();
+	}
 }
