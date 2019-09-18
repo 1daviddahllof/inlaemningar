@@ -18,7 +18,10 @@ public class tres {
 	}
 	public static void decirlo(String[] palabras){
 		for (int i = 2; i >= 0; i--) {
-			System.out.print(palabras[i] + " ");
+			for (int i2 = palabras[i].length() - 1; i2 >= 0; i2--) {
+				System.out.print(palabras[i].charAt(i2));
+			}
+			System.out.println();
 		}
 	}
 }
