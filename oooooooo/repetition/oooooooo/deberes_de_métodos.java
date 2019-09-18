@@ -46,6 +46,15 @@ class caja {
 		this.matrizDeObjectos = cosas.toArray();
 	}
 	
-	public comparador
+	public boolean comparador(caja cajaUno, caja cajaDos) {
+		for (int i = 0; i < cajaUno.matrizDeObjectos.length; i++) {
+			for (int i2 = 0; i2 < cajaDos.matrizDeObjectos.length; i2++) {
+				if (cajaUno.matrizDeObjectos[i].getClass().equals(cajaDos.matrizDeObjectos[i2].getClass())) {
+					return true;
+				}
+			}
+		}
+		return false;
+	}
 }
 
