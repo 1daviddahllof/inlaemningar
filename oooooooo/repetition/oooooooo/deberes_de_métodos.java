@@ -5,22 +5,21 @@ import java.util.Arrays;
 
 public class deberes_de_métodos {
 
-	static int suma = 0;
+	
 
 	public static int laSuma(int[] números) {
-		if (números.length > 0) {
-			suma += números[0];
-			números = Arrays.copyOfRange(números, 1, números.length);
-			laSuma(números);
+		int fin = números.length - 1;
+		if (fin == 0) {
+			return números[0];
 		}
-		return suma;
+		return laSuma(Arrays.copyOf(números, números.length - 1)) + números[fin];
 	}
 
-	public static String reverse(String str) {
-	    if ((null == str) || (str.length() <= 1)) {
-	        return str;
+	public static String atrás(String cuerda) {
+	    if ((null == cuerda) || (cuerda.length() <= 1)) {
+	        return cuerda;
 	    }
-	    return reverse(str.substring(1)) + str.charAt(0);
+	    return atrás(cuerda.substring(1)) + cuerda.charAt(0);
 	}
 
 	public static Object[] objectos(Object... fin) {
@@ -31,10 +30,13 @@ public class deberes_de_métodos {
 		return cosas.toArray();
 	}
 
-	static ArrayList<String> anagramas = new ArrayList<String>();
-
 	public static void anagramas(String palabra) {
-
+		ArrayList<String> anagramas = new ArrayList<String>();
+		if (anagramas )
+		
+		for (int iterador = 0; iterador < anagramas.size(); iterador++) {
+			System.out.print(anagramas.get(iterador));
+		}
 	}
 
 	public static int métodoFactorialDeMierda(int entreda) {
