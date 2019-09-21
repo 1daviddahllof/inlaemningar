@@ -5,8 +5,6 @@ import java.util.Arrays;
 
 public class deberes_de_métodos {
 
-	
-
 	public static int laSuma(int[] números) {
 		int fin = números.length - 1;
 		if (fin == 0) {
@@ -16,10 +14,10 @@ public class deberes_de_métodos {
 	}
 
 	public static String atrás(String cuerda) {
-	    if ((null == cuerda) || (cuerda.length() <= 1)) {
-	        return cuerda;
-	    }
-	    return atrás(cuerda.substring(1)) + cuerda.charAt(0);
+		if ((null == cuerda) || (cuerda.length() <= 1)) {
+			return cuerda;
+		}
+		return atrás(cuerda.substring(1)) + cuerda.charAt(0);
 	}
 
 	public static Object[] objectos(Object... fin) {
@@ -30,22 +28,17 @@ public class deberes_de_métodos {
 		return cosas.toArray();
 	}
 
-	public static void anagramas(String palabra) {
-		ArrayList<String> anagramas = new ArrayList<String>();
-		if (anagramas )
-		
-		for (int iterador = 0; iterador < anagramas.size(); iterador++) {
-			System.out.print(anagramas.get(iterador));
+//detta tog alltför länge för mig att lista ut
+	public static void anagramas(String cuerda, String empeza) {
+// lämna bara empeza tom. Om du skriver något där kommer den stringen ligga i början av varje printad string
+		if (cuerda.length() != 0) {
+			for (int iterador = 0; iterador < cuerda.length(); iterador++) {
+				anagramas(cuerda.substring(0, iterador) + cuerda.substring(iterador + 1),
+						empeza + cuerda.charAt(iterador));
+			}
+		} else {
+			System.out.println(empeza);
 		}
-	}
-
-	public static int métodoFactorialDeMierda(int entreda) {
-		int diosMío = 1;
-		while (entreda > 1) {
-			diosMío *= entreda;
-			entreda--;
-		}
-		return diosMío;
 	}
 }
 
@@ -53,13 +46,12 @@ class caja {
 	Object[] matrizDeObjectos;
 
 	public caja(Object... fin) {
-		// jag kan inte hitta ett sätt att använda objectos metoden här så jag kopierade
-		// in den istället som du ser
-		ArrayList<Object> cosas = new ArrayList<Object>();
-		for (Object cosa : fin) {
-			cosas.add(cosa);
+		// här har vi kopierad kod för att jag inte kommer på något annat sätt
+		ArrayList<Object> algo = new ArrayList<Object>();
+		for (Object ejemplo : fin) {
+			algo.add(ejemplo);
 		}
-		this.matrizDeObjectos = cosas.toArray();
+		this.matrizDeObjectos = algo.toArray();
 	}
 
 	public boolean comparador(caja cajaUno, caja cajaDos) {

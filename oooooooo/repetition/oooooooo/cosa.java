@@ -4,12 +4,8 @@ import java.util.Arrays;
 import java.util.Scanner;
 
 public class cosa {
-	
-
 	public static void main(String[] args) {
-		Scanner sc = new Scanner (System.in);
-	
+		deberes_de_métodos.anagramas("cuerda", "");	
 	}
-
 }
 
