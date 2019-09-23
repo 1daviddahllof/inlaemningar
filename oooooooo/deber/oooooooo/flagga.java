@@ -1,9 +1,16 @@
 package oooooooo;
 
+
+
 import javafx.application.Application;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.scene.Group;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.paint.Color;
+import javafx.scene.shape.Circle;
+import javafx.scene.shape.Polygon;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 
@@ -16,36 +23,138 @@ public class flagga extends Application{
 
 	@Override
 	public void start(Stage primaryStage) throws Exception {
-		  Rectangle rayacero = new Rectangle();
-	      rayacero.setFill(Color.DARKBLUE);
-	      rayacero.setWidth(480);
-	      rayacero.setHeight(300);
+	      primaryStage.setTitle("titel"); 
 	      
-	      Rectangle raya = new Rectangle();
-	      raya.setFill(Color.YELLOW);
-	      raya.setWidth(60);
-	      raya.setHeight(300);
-	      raya.setX(150);
+	      Button btn1 = new Button();
+	      btn1.setText("SVERIGE");
+	      btn1.relocate(100, 320);
 	      
-	      Rectangle rayados = new Rectangle();
-	      rayados.setFill(Color.YELLOW);
-	      rayados.setWidth(480);
-	      rayados.setHeight(60);
-	      rayados.setY(120);
+	      Button btn2 = new Button();
+	      btn2.setText("FRANKRIKE");
+	      btn2.relocate(180, 320);
 	      
-	    
-	     
+	      Button btn3 = new Button();
+	      btn3.setText("SKRUV");
+	      btn3.relocate(275, 320);
 	      
-	      Group root = new Group(rayacero, raya, rayados);
-
-	      //Creating a scene object 
-	      Scene scene = new Scene(root, 600, 330);
-	      //Setting title to the Stage 
-	      primaryStage.setTitle("EN J*VLA FLAGGA"); 
+	      Group botones = new Group(btn1, btn2, btn3);
 	      
-	      primaryStage.setScene(scene);
+	      btn1.setOnAction(new EventHandler<ActionEvent>() {
+	    	  
+	            @Override
+	            public void handle(ActionEvent event) {
+	                demonstrar(1, primaryStage, botones);
+	            }
+	        });
+	      
+	      btn2.setOnAction(new EventHandler<ActionEvent>() {
+	    	  
+	            @Override
+	            public void handle(ActionEvent event) {
+	                demonstrar(2, primaryStage, botones);
+	            }
+	        });
+	      
+	      btn3.setOnAction(new EventHandler<ActionEvent>() {
+	   
+	            @Override
+	            public void handle(ActionEvent event) {
+	                demonstrar(3, primaryStage, botones);
+	            }
+	        });
+	      
+	      demonstrar(2, primaryStage, botones);
+	      
 	      
 	      primaryStage.show();
+	}
+	private void demonstrar(int dirección, Stage primaryStage, Group botones) {
+		switch (dirección){
+			case(1):
+				Rectangle rayaCero = new Rectangle();
+		      rayaCero.setFill(Color.DARKBLUE);
+		      rayaCero.setWidth(480);
+		      rayaCero.setHeight(300);
+		      
+		      Rectangle raya = new Rectangle();
+		      raya.setFill(Color.YELLOW);
+		      raya.setWidth(60);
+		      raya.setHeight(300);
+		      raya.setX(150);
+		      
+		      Rectangle rayaDos = new Rectangle();
+		      rayaDos.setFill(Color.YELLOW);
+		      rayaDos.setWidth(480);
+		      rayaDos.setHeight(60);
+		      rayaDos.setY(120);
+		      
+		      Group raíz = new Group(rayaCero, raya, rayaDos, botones);
+		      
+		      Scene scene1 = new Scene(raíz, 480, 350);
+		      
+		      primaryStage.setScene(scene1);
+		      break;
+			case(2):
+
+				Rectangle galón = new Rectangle();
+				galón.setFill(Color.DARKBLUE);
+				galón.setWidth(160);
+				galón.setHeight(320);
+				
+				Rectangle galónDos = new Rectangle();
+				galónDos.setFill(Color.RED);
+				galónDos.setWidth(160);
+				galónDos.setHeight(320);
+				galónDos.setX(320);
+				
+				Group grupo = new Group(galón, galónDos, botones);
+				Scene scene2 = new Scene(grupo, 480, 350);
+				primaryStage.setScene(scene2);
+				break;
+			case(3):
+// jag vet att den inte är symmetrisk men jag orkar inte ändra den
+				
+				Rectangle antecedentes = new Rectangle();
+				antecedentes.setFill(Color.LIGHTGRAY);
+				antecedentes.setWidth(480);
+				antecedentes.setHeight(300);
+				
+				Circle circulo = new Circle();
+				circulo.setFill(Color.BLACK);
+				circulo.setRadius(80);
+				circulo.setCenterX(240);
+				circulo.setCenterY(150);
+				
+				Polygon polígono = créalo();
+				
+				
+				Polygon polígonoDos = créalo();
+				polígonoDos.setRotate(180);
+				polígonoDos.relocate(179.5, 141.5);
+				
+				Group equipo = new Group(antecedentes, circulo, polígono, polígonoDos, botones
+						);
+				Scene escena = new Scene(equipo, 480, 350);
+				primaryStage.setScene(escena);
+				break;
+		}
+	}
+	private Polygon créalo() {
+		Polygon polígono = new Polygon(new double[] {
+				237.5, 147.5,
+				242.5, 152.5,
+				220, 176,
+				205, 172,
+				200, 140,
+				294.5, 81,
+				229.5, 146,
+				234, 150.5
+				
+		});
+		polígono.setFill(Color.WHITE);
+		polígono.setScaleX(1.4);	
+		polígono.setScaleY(1.4);
+		return polígono;
 	}
 
 }
