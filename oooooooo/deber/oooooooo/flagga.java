@@ -8,6 +8,7 @@ import javafx.event.EventHandler;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.layout.HBox;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Polygon;
@@ -26,18 +27,17 @@ public class flagga extends Application{
 	      primaryStage.setTitle("titel"); 
 	      
 	      Button btn1 = new Button();
-	      btn1.setText("SVERIGE");
-	      btn1.relocate(100, 320);
-	      
+	      btn1.setText(" SVERIGE ");
+	     
 	      Button btn2 = new Button();
 	      btn2.setText("FRANKRIKE");
-	      btn2.relocate(180, 320);
 	      
 	      Button btn3 = new Button();
-	      btn3.setText("SKRUV");
-	      btn3.relocate(275, 320);
+	      btn3.setText("  SKRUV  ");
 	      
-	      Group botones = new Group(btn1, btn2, btn3);
+	      HBox botones = new HBox(btn1, btn2, btn3);
+	      botones.setSpacing(60);
+	      botones.relocate(75, 325);
 	      
 	      btn1.setOnAction(new EventHandler<ActionEvent>() {
 	    	  
@@ -68,10 +68,10 @@ public class flagga extends Application{
 	      
 	      primaryStage.show();
 	}
-	private void demonstrar(int dirección, Stage primaryStage, Group botones) {
+	private void demonstrar(int dirección, Stage primaryStage, HBox botones) {
 		switch (dirección){
 			case(1):
-				Rectangle rayaCero = new Rectangle();
+			  Rectangle rayaCero = new Rectangle();
 		      rayaCero.setFill(Color.DARKBLUE);
 		      rayaCero.setWidth(480);
 		      rayaCero.setHeight(300);
@@ -90,7 +90,7 @@ public class flagga extends Application{
 		      
 		      Group raíz = new Group(rayaCero, raya, rayaDos, botones);
 		      
-		      Scene scene1 = new Scene(raíz, 480, 350);
+		      Scene scene1 = new Scene(raíz, 480, 355);
 		      
 		      primaryStage.setScene(scene1);
 		      break;
@@ -108,7 +108,7 @@ public class flagga extends Application{
 				galónDos.setX(320);
 				
 				Group grupo = new Group(galón, galónDos, botones);
-				Scene scene2 = new Scene(grupo, 480, 350);
+				Scene scene2 = new Scene(grupo, 480, 355);
 				primaryStage.setScene(scene2);
 				break;
 			case(3):
@@ -117,16 +117,15 @@ public class flagga extends Application{
 				Rectangle antecedentes = new Rectangle();
 				antecedentes.setFill(Color.LIGHTGRAY);
 				antecedentes.setWidth(480);
-				antecedentes.setHeight(300);
+				antecedentes.setHeight(320);
 				
 				Circle circulo = new Circle();
 				circulo.setFill(Color.BLACK);
 				circulo.setRadius(80);
-				circulo.setCenterX(240);
-				circulo.setCenterY(150);
+				circulo.setCenterX(236);
+				circulo.setCenterY(156);
 				
 				Polygon polígono = créalo();
-				
 				
 				Polygon polígonoDos = créalo();
 				polígonoDos.setRotate(180);
@@ -134,7 +133,7 @@ public class flagga extends Application{
 				
 				Group equipo = new Group(antecedentes, circulo, polígono, polígonoDos, botones
 						);
-				Scene escena = new Scene(equipo, 480, 350);
+				Scene escena = new Scene(equipo, 480, 355);
 				primaryStage.setScene(escena);
 				break;
 		}
