@@ -25,46 +25,10 @@ public class flagga extends Application{
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 	      primaryStage.setTitle("titel"); 
-	      
-	      Button btn1 = new Button();
-	      btn1.setText(" SVERIGE ");
 	     
-	      Button btn2 = new Button();
-	      btn2.setText("FRANKRIKE");
-	      
-	      Button btn3 = new Button();
-	      btn3.setText("  SKRUV  ");
-	      
-	      HBox botones = new HBox(btn1, btn2, btn3);
-	      botones.setSpacing(60);
-	      botones.relocate(75, 325);
-	      
-	      btn1.setOnAction(new EventHandler<ActionEvent>() {
-	    	  
-	            @Override
-	            public void handle(ActionEvent event) {
-	                demonstrar(1, primaryStage, botones);
-	            }
-	        });
-	      
-	      btn2.setOnAction(new EventHandler<ActionEvent>() {
-	    	  
-	            @Override
-	            public void handle(ActionEvent event) {
-	                demonstrar(2, primaryStage, botones);
-	            }
-	        });
-	      
-	      btn3.setOnAction(new EventHandler<ActionEvent>() {
-	   
-	            @Override
-	            public void handle(ActionEvent event) {
-	                demonstrar(3, primaryStage, botones);
-	            }
-	        });
-	      
-	      demonstrar(2, primaryStage, botones);
-	      
+	      HBox botones = créaBotones(primaryStage);
+	    
+	      demonstrar(1, primaryStage, botones);
 	      
 	      primaryStage.show();
 	}
@@ -89,10 +53,7 @@ public class flagga extends Application{
 		      rayaDos.setY(120);
 		      
 		      Group raíz = new Group(rayaCero, raya, rayaDos, botones);
-		      
-		      Scene scene1 = new Scene(raíz, 480, 355);
-		      
-		      primaryStage.setScene(scene1);
+		      primaryStage.setScene(new Scene(raíz, 480, 355));
 		      break;
 			case(2):
 
@@ -108,8 +69,7 @@ public class flagga extends Application{
 				galónDos.setX(320);
 				
 				Group grupo = new Group(galón, galónDos, botones);
-				Scene scene2 = new Scene(grupo, 480, 355);
-				primaryStage.setScene(scene2);
+				primaryStage.setScene(new Scene(grupo, 480, 355));
 				break;
 			case(3):
 // jag vet att den inte är symmetrisk men jag orkar inte ändra den
@@ -131,12 +91,34 @@ public class flagga extends Application{
 				polígonoDos.setRotate(180);
 				polígonoDos.relocate(179.5, 141.5);
 				
-				Group equipo = new Group(antecedentes, circulo, polígono, polígonoDos, botones
-						);
-				Scene escena = new Scene(equipo, 480, 355);
-				primaryStage.setScene(escena);
+				Group equipo = new Group(antecedentes, circulo, polígono, polígonoDos, botones);
+				primaryStage.setScene(new Scene(equipo, 480, 355));
 				break;
-		}
+			case(4):
+				Rectangle cuadrado = new Rectangle();
+				cuadrado.setFill(Color.RED);
+				cuadrado.setX(240);
+				cuadrado.setWidth(240);
+				cuadrado.setHeight(160);
+				
+				Rectangle otroCuadrado =  new Rectangle();
+				otroCuadrado.setFill(Color.BLUE);
+				otroCuadrado.setX(0);
+				otroCuadrado.setY(160);
+				otroCuadrado.setWidth(240);
+				otroCuadrado.setHeight(160);
+				
+				Polygon estrella = créaEstrella();
+				estrella.setFill(Color.BLUE);
+				estrella.relocate(120, 80);
+				
+				Polygon estrellaDos = créaEstrella();
+				estrellaDos.setFill(Color.RED);
+				estrellaDos.relocate(360, 240);
+				
+				Group camaradas = new Group(cuadrado, otroCuadrado, estrella, estrellaDos, botones);
+				primaryStage.setScene(new Scene(camaradas, 480, 355));
+			}
 	}
 	private Polygon créalo() {
 		Polygon polígono = new Polygon(new double[] {
@@ -155,5 +137,73 @@ public class flagga extends Application{
 		polígono.setScaleY(1.4);
 		return polígono;
 	}
-
+	private Polygon créaEstrella() {
+		Polygon estrella = new Polygon(new double[] {
+		1, 2,
+		.775, 1.3091,
+		.0049, 1.3091,
+		.637, .8821,
+		.412, .191,
+		1, .6181,
+		1.5878, .191,
+		1.3633, .8821,
+		1.9515, 1.3091,
+		1.225, 1.3091
+		
+		});
+		estrella.setScaleX(40);
+		estrella.setScaleY(40);
+		estrella.setRotate(180);
+		return estrella;
+			
+	}
+	private HBox créaBotones(Stage primaryStage) {
+		 Button btn1 = new Button();
+	      btn1.setText("  SVERIGE  ");
+	     
+	      Button btn2 = new Button();
+	      btn2.setText("FRANKRIKE");
+	      
+	      Button btn3 = new Button();
+	      btn3.setText("   SKRUV   ");
+	      
+	      Button btn4 = new Button();
+	      btn4.setText("  PANAMA  ");
+	      
+	      HBox botones = new HBox(btn1, btn2, btn3, btn4);
+	      botones.setSpacing(30);
+	      botones.relocate(40, 325);
+	      btn1.setOnAction(new EventHandler<ActionEvent>() {
+	    	  
+	            @Override
+	            public void handle(ActionEvent event) {
+	                demonstrar(1, primaryStage, botones);
+	            }
+	        });
+	      
+	      btn2.setOnAction(new EventHandler<ActionEvent>() {
+	    	  
+	            @Override
+	            public void handle(ActionEvent event) {
+	                demonstrar(2, primaryStage, botones);
+	            }
+	        });
+	      
+	      btn3.setOnAction(new EventHandler<ActionEvent>() {
+	   
+	            @Override
+	            public void handle(ActionEvent event) {
+	                demonstrar(3, primaryStage, botones);
+	            }
+	        });
+	      
+	      btn4.setOnAction(new EventHandler<ActionEvent>() {
+	   	   
+	            @Override
+	            public void handle(ActionEvent event) {
+	                demonstrar(4, primaryStage, botones);
+	            }
+	        });
+	      return botones;
+	}
 }
