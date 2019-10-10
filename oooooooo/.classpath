@@ -1,16 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
-	<classpathentry kind="src" path="src"/>
-	<classpathentry kind="src" path="loop"/>
-	<classpathentry kind="src" path="sss"/>
-	<classpathentry kind="src" path="arrayer_v46"/>
-	<classpathentry kind="src" path="bonusuppgifter"/>
-	<classpathentry kind="src" path="Sorteringen"/>
-	<classpathentry kind="src" path="switch"/>
-	<classpathentry kind="src" path="(dåliga)spel"/>
-	<classpathentry kind="src" path="kattis"/>
 	<classpathentry kind="src" path="repetition"/>
 	<classpathentry kind="src" path="deber"/>
+	<classpathentry kind="src" path="räknare"/>
+	<classpathentry kind="src" path="Mayaräknare"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

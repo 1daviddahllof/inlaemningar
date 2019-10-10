@@ -2,6 +2,8 @@ package oooooooo;
 
 
 
+import java.util.Arrays;
+
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -28,7 +30,7 @@ public class flagga extends Application{
 	     
 	      HBox botones = créaBotones(primaryStage);
 	    
-	      demonstrar(1, primaryStage, botones);
+	      demonstrar(4, primaryStage, botones);
 	      
 	      primaryStage.show();
 	}
@@ -118,7 +120,8 @@ public class flagga extends Application{
 				
 				Group camaradas = new Group(cuadrado, otroCuadrado, estrella, estrellaDos, botones);
 				primaryStage.setScene(new Scene(camaradas, 480, 355));
-			}
+				break;
+		}
 	}
 	private Polygon créalo() {
 		Polygon polígono = new Polygon(new double[] {
@@ -158,6 +161,7 @@ public class flagga extends Application{
 			
 	}
 	private HBox créaBotones(Stage primaryStage) {
+	
 		 Button btn1 = new Button();
 	      btn1.setText("  SVERIGE  ");
 	     
@@ -205,5 +209,20 @@ public class flagga extends Application{
 	            }
 	        });
 	      return botones;
+	}
+	private Rectangle raya(int lo) {
+		Rectangle este = new Rectangle();
+		este.setWidth(480);
+		double altura =  240*13.75 / 169;
+		este.setHeight(altura);
+		este.setY(lo * altura * 2);
+		este.setFill(Color.RED);
+		return este;
+	}
+	private Polygon créaEstrella2(Polygon estrella) {
+		estrella.setScaleX(0.19384615385);
+		estrella.setScaleY(0.19384615385);
+		estrella.setFill(Color.WHITE);
+		return estrella;
 	}
 }
