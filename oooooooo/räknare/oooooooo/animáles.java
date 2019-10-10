@@ -2,11 +2,8 @@ package oooooooo;
 
 public class animáles {
 	public static void main(String[] args) {
-		Conejo conejo = new Conejo();
-		conejo.eat(new Vegetal());
-		Humano humano = new Humano();
-		humano.eat(new Vegetal());
-		humano.eat(new Carne());
+		
+		
 		
 	}
 }
@@ -27,7 +24,7 @@ abstract class Animál {
 class León extends Animál{
 	@Override
 	Comida[] gusto() {
-		Comida[] gusto = {new Carne()};
+		Comida[] gusto = {};
 		return gusto;
 	}
 }
@@ -35,14 +32,14 @@ class León extends Animál{
 class Conejo extends Animál{
 	@Override
 	Comida[] gusto() {
-		Comida[] gusto = {new Vegetal()};
+		Comida[] gusto = {};
 		return gusto;
 	}
 }
 class Humano extends Animál{
 	@Override
 	Comida[] gusto() {
-		Comida[] gusto = {new Vegetal(), new Carne()};
+		Comida[] gusto = {};
 		return gusto;
 	}
  }
@@ -50,8 +47,14 @@ class Humano extends Animál{
 abstract class Comida {
 }
 class Carne extends Comida{
-	class Algo extends Comida {
+	class Filete {
+		
 	}
+	Filete filete;
 }
 class Vegetal extends Comida{
+class Zanahoria {
+		
+	}
+
 }
