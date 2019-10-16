@@ -1,0 +1,9 @@
+Steg ett
+Skapa en fungerande layout i javaFx. Detta är den svåraste delen av uppfigten för mig, så jag gör den först.
+Jag Planerar att använda enn TextField som alltid sitter på samma plats i fönstret och under den en Group som skapar knapparna.
+Denna groupen kan bytas mot en annan Group i samma abstrakta klass för att visa knappar för flera funktioner.
+
+steg fyra
+När GUI:n är klar ska jag skapa metoder för knapparna att utföra. Jag planerar att ta inputen från textfielden och på något sätt dela upp
+den i ordning av operationer t.ex. blir [(4 - (4 - 1)) * 4] [4-1]svaret-> [4 - svaret]svaret-> [svaret * 4]
+Det svåra kommer att bli att läsa input från textfield och knapparna. Funktionerna som gör matten är förståss inbyggt i java.
