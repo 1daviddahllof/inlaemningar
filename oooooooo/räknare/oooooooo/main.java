@@ -93,9 +93,22 @@ public class main extends Application{
 		
 	}
 	
-	abstract class operador{
+	abstract class Operador{
+		abstract División funcionar(División primeroTérmino, División segundoTérmino);
 	}
-	
+	class Adición extends Operador{
+		División funcionar(División primeroTérmino, División segundoTérmino) {
+			return new División();
+		}
+	}
+	class División extends Operador{
+		long numerador;
+		long denomerador;
+		
+		División funcionar(División primeroTérmino, División segundoTérmino) {
+			return new División();
+		}
+	}
 	
 	class Botón extends Button{
 		@Override
