@@ -7,3 +7,9 @@ steg fyra
 NÃ¤r GUI:n Ã¤r klar ska jag skapa metoder fÃ¶r knapparna att utfÃ¶ra. Jag planerar att ta inputen frÃ¥n textfielden och pÃ¥ nÃ¥got sÃ¤tt dela upp
 den i ordning av operationer t.ex. blir [(4 - (4 - 1)) * 4] [4-1]svaret-> [4 - svaret]svaret-> [svaret * 4]
 Det svÃ¥ra kommer att bli att lÃ¤sa input frÃ¥n textfield och knapparna. Funktionerna som gÃ¶r matten Ã¤r fÃ¶rstÃ¥ss inbyggt i java.
+
+Om jag får ett bra betyg med denna planeringen har vi lyckats dra ner förväntningarna du har till botten.
+
+Loggbok dag 2019 10 17
+Den lilla planeringen jag har gjort har jag kastat och jag gör på ett annat sätt. Jag har bestämt mig för att
+använda metoder som ger mig knapparna.
