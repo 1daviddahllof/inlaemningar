@@ -105,33 +105,33 @@ public class main extends Application {
 		if (altura >= árbol.size()) {
 			árbol.add(new ArrayList<ArrayList<Operación>>());
 		}
-		System.out.println(tempPregunta);
+		if (tempPregunta.length() == 0) {
+			return;
+		}
 		int proximaAbierta = tempPregunta.indexOf('(');
 		int proximaCerrada = tempPregunta.indexOf(')');
-		System.out.println(proximaAbierta + "" +  proximaCerrada);
+		
 		ArrayList<Operación> k = new ArrayList<Operación>();
-		if (proximaAbierta < proximaCerrada && proximaAbierta != -1) {
+		if (proximaAbierta == proximaCerrada) {
+			k.addAll(new OperaciónDeTexto(tempPregunta).operaciones);
+			árbol.get(altura).add(k);
+		} else if (proximaAbierta < proximaCerrada && proximaAbierta != -1) {
 			k.addAll(new OperaciónDeTexto(tempPregunta.substring(0, proximaAbierta)).operaciones);
 			k.add(new Arriba());
 			árbol.get(altura).add(k);
-			créaÁrbol(árbol, tempPregunta.substring(proximaAbierta + 1), altura++);
-		} else if (proximaAbierta > proximaCerrada && proximaCerrada != -1) {
-			System.out.print(tempPregunta.substring(0, proximaCerrada));
+			créaÁrbol(árbol, tempPregunta.substring(proximaAbierta + 1), altura + 1);
+		} else {
 			k.addAll(new OperaciónDeTexto(tempPregunta.substring(0, proximaCerrada)).operaciones);
 			árbol.get(altura).add(k);
-			créaÁrbol(árbol, tempPregunta.substring(proximaCerrada + 1), altura--);
-		} else {
-			k.addAll(new OperaciónDeTexto(tempPregunta).operaciones);
-			System.out.print(k.size());
-			árbol.get(altura).add(k);
+			créaÁrbol(árbol, tempPregunta.substring(proximaCerrada + 1), altura - 1);
 		}
 	}
 
 	void EJECUTAR(ArrayList<ArrayList<ArrayList<Operación>>> árbol) {
 		
 		for (int i = árbol.size() - 1; i >= 0; i--) {
+	
 			int contarArriba = 0;
-			
 			for (int i2 = 0; i2 + 1 < árbol.get(i).size(); i2++) {
 				if (árbol.get(i).get(i2).get(árbol.get(i).get(i2).size() - 1).getClass()
 						.equals(new Arriba().getClass())) {
@@ -233,7 +233,6 @@ public class main extends Application {
 			default:
 				int cortar = proximaOperador();
 				String número = primeroChar + this.texto.substring(0, cortar);
-				System.out.println(número);
 				this.texto = this.texto.substring(proximaOperador());
 				return new Doble().darValor(Double.valueOf(número));
 			}
