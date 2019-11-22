@@ -27,6 +27,7 @@ public class main extends Application {
 		primaryStage.setScene(new Scene(créaTodo(primaryStage), 400, 300));
 	}
 
+// initierar andra metoder som skapar en borderpane och en gridpane för att lägga i en ny group som returnas.
 	Group créaTodo(Stage primaryStage) {
 		BorderPane borderpane = new BorderPane();
 		borderpane.setTop(texto);
@@ -36,6 +37,7 @@ public class main extends Application {
 		return new Group(borderpane, cuadrícula);
 	}
 
+// Skapar och ger attributer till en cuadrícula och kör metod som lägger till knappar och sedan returnas den
 	GridPane créaCuadrícula1() {
 		GridPane cuadrícula = new GridPane();
 		botondes(cuadrícula);
@@ -45,6 +47,7 @@ public class main extends Application {
 		return cuadrícula;
 	}
 
+// Tar en gridpane och lägger till knapparna med hjälp av créaBotón metoden
 	void botondes(GridPane cuadrícula) {
 		Botón b7 = créaBotón('7', new Escribirlo().c('7'));
 		Botón b8 = créaBotón('8', new Escribirlo().c('8'));
@@ -74,6 +77,7 @@ public class main extends Application {
 		cuadrícula.addRow(3, b0, bp, be, bd);
 	}
 
+// Skapar en knapp med symbolen c och funktionen acción
 	Botón créaBotón(char c, AcciónDelBotón acción) {
 		Botón b = new Botón();
 		b.setText(Character.toString(c));
@@ -83,8 +87,8 @@ public class main extends Application {
 		return b;
 	}
 
-	
-
+//  Tar bord eventuella operationer på slutet av texten som kan strula till det och kör sedan 
+//	metoder som tar texten och spottar ut ett svar villket läggs till i texto
 	void RESPONDAME() {
 		String pregunta = texto.getText();
 		if (("" + pregunta.charAt(pregunta.length() - 1)).matches("[+-/*]*")) {
@@ -101,6 +105,10 @@ public class main extends Application {
 		}
 	}
 
+// Skapar ett träd (árbol) av ArrayList<Operación>
+// En arrayList<Operación> kan beräknas till en double och en Arriba() är platshållare till en annan
+// arrayList<Operación> som ska beräknas först och har en högre index i árbol
+
 	void créaÁrbol(ArrayList<ArrayList<ArrayList<Operación>>> árbol, String tempPregunta, int altura) {
 		if (altura >= árbol.size()) {
 			árbol.add(new ArrayList<ArrayList<Operación>>());
@@ -110,7 +118,7 @@ public class main extends Application {
 		}
 		int proximaAbierta = tempPregunta.indexOf('(');
 		int proximaCerrada = tempPregunta.indexOf(')');
-		
+
 		ArrayList<Operación> k = new ArrayList<Operación>();
 		if (proximaAbierta == proximaCerrada) {
 			k.addAll(new OperaciónDeTexto(tempPregunta).operaciones);
@@ -126,11 +134,15 @@ public class main extends Application {
 			créaÁrbol(árbol, tempPregunta.substring(proximaCerrada + 1), altura - 1);
 		}
 	}
+	
+// Beräknar varje <ArrayList<Operación>> med hjälp av calcular metoden. Om en altura() hittas byts den ut mot en
+// double som beräknades innan från en ArrayList<Operación>, int contarArriba håller reda på var i den ArrayList<ArrayList<Operación>>
+// som ligger ett index högre som den kan hitta rätt ArrayList<Operación>
 
 	void EJECUTAR(ArrayList<ArrayList<ArrayList<Operación>>> árbol) {
-		
+
 		for (int i = árbol.size() - 1; i >= 0; i--) {
-	
+
 			int contarArriba = 0;
 			for (int i2 = 0; i2 + 1 < árbol.get(i).size(); i2++) {
 				if (árbol.get(i).get(i2).get(árbol.get(i).get(i2).size() - 1).getClass()
@@ -155,7 +167,10 @@ public class main extends Application {
 			}
 		}
 	}
-
+	
+// Hämtar en ArrayList<Operación> och spottar ut en double.
+// Använder sig av metoder som letar efter divisioner, multiplikationer, additioner och subtraktioner och tar
+// De gränsande talen(Doble) för att skapa en ny Doble som ersätter dem
 	double calcular(ArrayList<Operación> operaciones) {
 		operaciones = Divición(operaciones);
 		operaciones = Multiplicación(operaciones);
@@ -202,22 +217,26 @@ public class main extends Application {
 		return operaciones;
 	}
 
+//Tar in en text när den är deklarerad och deriverar av den en ArrayList<Operación>
 	class OperaciónDeTexto {
 		String texto;
 		ArrayList<Operación> operaciones;
 
 		OperaciónDeTexto(String texto) {
 			this.texto = texto;
- 			operaciones = new ArrayList<Operación>();
+			operaciones = new ArrayList<Operación>();
 			créaListaDeArregla();
 		}
 
+//Hämtar operationer från texten och lägger dem i listan
 		void créaListaDeArregla() {
 			while (this.texto.length() > 0) {
 				operaciones.add(conseguirProximaOperación());
 			}
 		}
 
+//Beroende på vad den första charen är lägger den till olika operationer
+//Ja, jag räknar ett tal som en operation
 		Operación conseguirProximaOperación() {
 			char primeroChar = this.texto.charAt(0);
 			this.texto = this.texto.substring(1);
@@ -237,7 +256,6 @@ public class main extends Application {
 				return new Doble().darValor(Double.valueOf(número));
 			}
 		}
-
 		int proximaOperador() {
 			for (int i = 0; i < this.texto.length(); i++) {
 				if (("" + this.texto.charAt(i)).matches("[+-/*]") && this.texto.charAt(i) != '.') {
@@ -245,13 +263,16 @@ public class main extends Application {
 				}
 			}
 			return this.texto.length();
-		}	
+		}
 	}
 
+// en operación kan ta in två tal och spotta ut ett annat
 	abstract class Operación {
 		abstract double operar(double n1, double n2);
 	}
-
+	
+// denna är inte mycket av en operation men jag ville ha den i samma lista som de andra operationerna
+// sparar ett double värde
 	class Doble extends Operación {
 		double valor = 1;
 
@@ -265,6 +286,7 @@ public class main extends Application {
 		}
 	}
 
+// som en Doble, men ANNORULDA
 	class Arriba extends Doble {
 	};
 
@@ -297,16 +319,19 @@ public class main extends Application {
 		}
 	}
 
+// alla knappar måste ju göra något
 	abstract class AcciónDelBotón {
 		abstract void hacerlo();
 	}
 
+// denna handlingen kör RESPONDAME() som ger ett svar på polynomet
 	class be extends AcciónDelBotón {
 		void hacerlo() {
 			RESPONDAME();
 		}
 	}
 
+// 
 	abstract class Escribir extends AcciónDelBotón {
 		char c;
 
