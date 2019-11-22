@@ -241,13 +241,12 @@ public class main extends Application {
 
 		int proximaOperador() {
 			for (int i = 0; i < this.texto.length(); i++) {
-				if (("" + this.texto.charAt(i)).matches("[+-/*]")) {
+				if (("" + this.texto.charAt(i)).matches("[+-/*]") && this.texto.charAt(i) != '.') {
 					return i;
 				}
 			}
 			return this.texto.length();
-		}
-
+		}	
 	}
 
 	abstract class Operación {
