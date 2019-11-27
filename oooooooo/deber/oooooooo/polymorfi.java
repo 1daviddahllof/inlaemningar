@@ -13,7 +13,7 @@ public class polymorfi {
 			System.out.println("peso = " + basura.peso);
 			System.out.println("El olor : ");
 			basura.oler();
-			System.out.println("Sí toco : ");
+			System.out.println("Sí lo toco : ");
 			basura.tocar();
 			System.out.println();
 			System.out.println("##############");	
