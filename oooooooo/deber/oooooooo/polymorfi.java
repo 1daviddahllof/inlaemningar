@@ -9,7 +9,7 @@ public class polymorfi {
 		tachoDeBasura[2] = new polymorfi.reliquiaAntigua(20);
 		for (basura basura : tachoDeBasura) {
 			System.out.println();
-			System.out.println(basura.getClass().getSimpleName() + "es reciclable: " + basura.esReciclable());
+			System.out.println(basura.getClass().getSimpleName() + " es reciclable: " + basura.esReciclable());
 			System.out.println("peso = " + basura.peso);
 			System.out.println("El olor : ");
 			basura.oler();
