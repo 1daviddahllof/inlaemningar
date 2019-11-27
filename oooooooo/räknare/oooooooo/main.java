@@ -331,7 +331,7 @@ public class main extends Application {
 		}
 	}
 
-// 
+// alla knappar som skriver en symbol har vissa saker gemensamt och därför gjorde jag detta till en abstrakt klass
 	abstract class Escribir extends AcciónDelBotón {
 		char c;
 
@@ -343,6 +343,9 @@ public class main extends Application {
 		abstract void hacerlo();
 	}
 
+// knappar som extendar escribir har olika villkor innan de skriver en char
+// jag skrev ett annat sätt att validera om en char ska kunna bli skriven längre ner. Jag skulle
+// ha återanvänt koden bättre
 	class Escribirlo extends Escribir {
 		@Override
 		void hacerlo() {
