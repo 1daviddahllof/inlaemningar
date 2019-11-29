@@ -7,6 +7,7 @@ public class polymorfi {
 		tachoDeBasura[0] = new polymorfi.lataDeAluminio(20);
 		tachoDeBasura[1] = new polymorfi.desperdiciosNucleares(20);
 		tachoDeBasura[2] = new polymorfi.reliquiaAntigua(20);
+		
 		for (basura basura : tachoDeBasura) {
 			System.out.println();
 			System.out.println(basura.getClass().getSimpleName() + " es reciclable: " + basura.esReciclable());
@@ -21,13 +22,17 @@ public class polymorfi {
 	}
 
 	static abstract class basura {
-		double peso;
+		private double peso;
 		public basura(double peso) {
 			this.peso = peso;
 		}
-		
+			
 		void cambiarPeso(double pesoNuevo) {
 			this.peso = pesoNuevo;
+		}
+		
+		double conseguirPeso() {
+			return this.peso;
 		}
 		
 		abstract boolean esReciclable();
