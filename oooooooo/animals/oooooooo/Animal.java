@@ -25,4 +25,4 @@ public abstract class Animal {
     }
 }
 
-// Variabeln color borde bara finnas i Animal klassen
+// Variabeln color borde bara finnas i Animal klassen för att följa SRP
