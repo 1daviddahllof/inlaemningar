@@ -10,7 +10,7 @@ public class mejn   {
 
         System.out.println("###############");
         System.out.println();
-
+        
         for (Animal animal : animals) {
             animal.eat();
             animal.sleep();
@@ -19,9 +19,10 @@ public class mejn   {
             animal.setColor("Gray");
             System.out.println(animal.getClass().getSimpleName() + " is " + animal.getColor());
             System.out.println();
-
             System.out.println("###############");
             System.out.println();
         }
     }
+    // dame tu dinero
+    // puedo encontrar nada más 
 }
