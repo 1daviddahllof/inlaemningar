@@ -4,6 +4,7 @@
 	<classpathentry kind="src" path="deber"/>
 	<classpathentry kind="src" path="räknare"/>
 	<classpathentry kind="src" path="Mayaräknare"/>
+	<classpathentry kind="src" path="animals"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
