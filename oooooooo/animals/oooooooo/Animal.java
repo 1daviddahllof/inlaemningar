@@ -1,28 +1,33 @@
 package oooooooo;
 
-public abstract class Animal {
+import interfaces.IMotions;
 
-   // public String _color;
-	private String _color;
+public abstract class Animal implements IMotions {
 
-    public Animal(String color)
+    private String _color;
+    private String _description;
+
+    public Animal(String color, String description)
     {
         _color = color;
+        _description = description;
     }
 
-    abstract void speak();
+    public abstract void speak();
 
-    abstract void sleep();
+    public abstract void sleep();
 
-    abstract void eat();
-
+    public abstract void eat();
     public String getColor() {
         return _color;
     }
-    
-    public void setColor(String color) {
-    	this._color = color;
-    }
-}
 
-// Variabeln color borde bara finnas i Animal klassen för att följa SRP
+    public void setColor(String color) {
+        _color = color;
+    }
+
+    public void printDescritption() {
+        System.out.println(_description);
+    }
+
+}
